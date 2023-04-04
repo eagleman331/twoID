@@ -20,7 +20,7 @@ const index = ({navigation}) => {
           <Header />
 
     <View>
-      <Text style={{color:"white"}}>index</Text>
+      <Text style={{color:"white"}}>Plaza</Text>
     </View>
         </ScrollView>
 

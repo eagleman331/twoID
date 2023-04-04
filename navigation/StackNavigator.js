@@ -120,6 +120,17 @@ function TabNavigator() {
         }}
         component={HomeStack}
       />
+        <Tabs.Screen
+        name="PlazaTab"
+        options={{
+          headerShown: false,
+          tabBarLabel: "Plaza",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="hotel" size={24} color="black" />
+          ),
+        }}
+        component={PlazaStack}
+      />
       <Tabs.Screen
         name="LogTab"
         options={{
@@ -131,17 +142,7 @@ function TabNavigator() {
         }}
         component={LogInStack}
       />
-       <Tabs.Screen
-        name="PlazaTab"
-        options={{
-          headerShown: false,
-          tabBarLabel: "Plaza",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="hotel" size={24} color="black" />
-          ),
-        }}
-        component={PlazaStack}
-      />
+     
     </Tabs.Navigator>
   );
 }
