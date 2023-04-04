@@ -1,4 +1,5 @@
 import "expo-dev-client";
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
