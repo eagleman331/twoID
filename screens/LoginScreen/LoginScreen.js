@@ -22,8 +22,9 @@ const signIn = () => {
 
   return (
     <SafeAreaView style={styles.container} >
-      <View>
+      
         <StatusBar style="light" />
+      <View>
         <Image
           source={{
             uri:
