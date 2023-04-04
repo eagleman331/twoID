@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "672052310728",
+    "project_id": "junglepopoy-8512b",
+    "storage_bucket": "junglepopoy-8512b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672052310728:android:41276f1e84cb928b3febfd",
+        "android_client_info": {
+          "package_name": "com.eagleman33.myFirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672052310728-m0qjpk3h9gakcb6ss8ojforfuqoklslf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eagleman33.myFirebaseauth",
+            "certificate_hash": "afb24ed4021bde3fb54d6fd3f97a57d0a8154900"
+          }
+        },
+        {
+          "client_id": "672052310728-ol8a7nuffbjdlpanu2qu93t091kch7rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYFykrVGYMoBZYfFDvwP0Gp5safj_25O0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672052310728-bjqeidolmdc3t6f42vdv70tg7q2pqce3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "672052310728-pt2rqt1oe7ad8t4pssqbrql1377s7k47.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eagleman33.JunglePopoy"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672052310728:android:c5de3f68f5845f443febfd",
+        "android_client_info": {
+          "package_name": "com.eagleman33.twoID"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672052310728-4aft2f6puk0i3r6nahpf25pgnttr00tf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eagleman33.twoID",
+            "certificate_hash": "b2aaa3a099abbdbd38a50f805e0a714d059db137"
+          }
+        },
+        {
+          "client_id": "672052310728-ol8a7nuffbjdlpanu2qu93t091kch7rt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYFykrVGYMoBZYfFDvwP0Gp5safj_25O0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672052310728-bjqeidolmdc3t6f42vdv70tg7q2pqce3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "672052310728-pt2rqt1oe7ad8t4pssqbrql1377s7k47.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eagleman33.JunglePopoy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
