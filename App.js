@@ -4,6 +4,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import { NavigationContainer } from "@react-navigation/native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import AuthContextProvider from "./context/AuthContext";
+import TaskContextProvider from "./context/TaskContext";
+import StackNavigator from "./navigation/StackNavigator";
+
 
 GoogleSignin.configure({
   webClientId: '672052310728-ol8a7nuffbjdlpanu2qu93t091kch7rt.apps.googleusercontent.com',
@@ -30,24 +36,34 @@ export default function App() {
     })
   }
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button
-      title="Google Sign-In"
-      onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
-    />
+  // return (
+  //   <View style={styles.container}>
+  //     <Text>Open up App.js to start working on your app!</Text>
+  //     <Button
+  //     title="Google Sign-In"
+  //     onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+  //   />
    
-      <StatusBar style="auto" />
-    </View>
+  //     <StatusBar style="auto" />
+  //   </View>
+  // );
+  return (
+    <NavigationContainer>
+      <GestureHandlerRootView style={styles.container}>
+        <AuthContextProvider>
+          <TaskContextProvider>
+            <StackNavigator />
+          </TaskContextProvider>
+        </AuthContextProvider>
+      </GestureHandlerRootView>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
   },
 });
+
