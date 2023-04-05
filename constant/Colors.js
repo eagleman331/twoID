@@ -22,7 +22,16 @@ export default {
     faceBook: "#4267B2",
     pinkRed: "rgba(199, 43, 98, 1)",
     gold:"#FFD700",
-    money:"#85BB65"
-  
+    money:"#85BB65",
+
+    //pallete JunglePopoy
+    limeSoap:"#7bed9f",
+    ufoGreen:"#2ed573",
+    whiteGray:"#ffffff",
+    cityLime:"#dfe4ea",
+    frenchyBlue:"#70a1ff",
+    prestige:"#2f3542",
+    goldSand:"#eccc68",
+    waterMelon:"#ff4757",
 
 }

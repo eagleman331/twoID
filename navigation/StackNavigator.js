@@ -131,7 +131,7 @@ function TabNavigator() {
         }}
         component={PlazaStack}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="LogTab"
         options={{
           headerShown: false,
@@ -141,7 +141,7 @@ function TabNavigator() {
           ),
         }}
         component={LogInStack}
-      />
+      /> */}
      
     </Tabs.Navigator>
   );
