@@ -29,8 +29,10 @@ import Colors from "../constant/Colors";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaScreen";
+import News from "../screens/News";
 
 const LogInStackNav = createSharedElementStackNavigator();
+const NewStackNav = createSharedElementStackNavigator();
 const HomeNav = createSharedElementStackNavigator();
 const PlazaNav = createSharedElementStackNavigator();
 const FinalStackNav = createSharedElementStackNavigator();
@@ -94,6 +96,17 @@ function PlazaStack() {
     </PlazaNav.Navigator>
   );
 }
+function NewStack() {
+  return (
+    <NewStackNav.Navigator initialRouteName="News">
+      <NewStackNav.Screen
+        name="News"
+        options={options}
+        component={News}
+      />
+    </NewStackNav.Navigator>
+  );
+}
 function LogInStack() {
   return (
     <LogInStackNav.Navigator initialRouteName="Login">
@@ -121,6 +134,17 @@ function TabNavigator() {
         component={HomeStack}
       />
         <Tabs.Screen
+        name="News"
+        options={{
+          headerShown: false,
+          tabBarLabel: "Photo",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="newspaper-o" size={24}  />
+          ),
+        }}
+        component={NewStack}
+      />
+       <Tabs.Screen
         name="PlazaTab"
         options={{
           headerShown: false,
@@ -137,7 +161,7 @@ function TabNavigator() {
           headerShown: false,
           tabBarLabel: "LogIn",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="newspaper-o" size={24} color="black" />
+            <AntDesign name="login" size={24} color="black" />
           ),
         }}
         component={LogInStack}
