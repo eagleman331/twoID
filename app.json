@@ -36,7 +36,15 @@
       }
     },
     "plugins": [
-      "@react-native-google-signin/google-signin"
+      "@react-native-google-signin/google-signin",
+      [
+        "react-native-fbsdk-next",
+        {
+          "appID": "174774031681194",
+          "clientToken": "d29a1c6571ed653f14d7f12803428a92",
+          "displayName": "twoIDAuthentication"
+        }
+      ]
     ]
   }
 }
