@@ -156,9 +156,7 @@ const index = ({navigation}) => {
             </View>
           </View>
         </View>
-    <View>
-      <Text style={{color:"white"}}>Plaza</Text>
-    </View>
+  
         </ScrollView>
 
     </SafeAreaView>

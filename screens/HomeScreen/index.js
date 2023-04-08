@@ -2,7 +2,7 @@ import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import styles from "./styles";
 import { SafeAreaView } from 'react-native';
-import { NarrativeData } from "../../assets/NarrativeData";
+import { NarrativeData } from "../../assets/DataSampleWords/NarrativeData";
 
 
 const index = ({navigation}) => {
@@ -21,7 +21,7 @@ const index = ({navigation}) => {
         <ScrollView>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <View style={styles.logoImageContainer}>
-            <Image source={require("../../assets/OCSlogoNo.png")} style={styles.logoImage} />
+            <Image source={require("../../assets/junglepopoy.png")} style={styles.logoImage} />
           </View>
         </TouchableOpacity>
         <View style={styles.firstTextContainer}>
