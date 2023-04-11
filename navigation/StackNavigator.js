@@ -19,16 +19,17 @@ import {
 import {
   FontAwesome,
   FontAwesome5,
-  AntDesign,
-  Fontisto,
-  MaterialIcons,
+  MaterialCommunityIcons,
+  Foundation
 } from "@expo/vector-icons";
+import DrawerDesign from "../component/Drawer/DrawerDesign";
 import { enableScreens } from "react-native-screens";
 enableScreens();
 import Colors from "../constant/Colors";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaScreen";
+import { AuthContext } from "../context/AuthContext";
 
 const LogInStackNav = createSharedElementStackNavigator();
 const HomeNav = createSharedElementStackNavigator();
@@ -45,7 +46,8 @@ const SpecialButton = (props) => {
         onPress={() => props.onPress()}
         style={styles.customButton}
       >
-        <FontAwesome5 name="running" size={40} color="black" />
+
+        <MaterialCommunityIcons name="map-search-outline" size={40} color= {Colors.ufoGreen} />
       </TouchableOpacity>
     </View>
   );
@@ -121,6 +123,38 @@ function TabNavigator() {
         component={HomeStack}
       />
         <Tabs.Screen
+        name="Photos"
+        options={{
+          headerShown: false,
+          tabBarLabel: "Photos",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="photo" size={24} color="black" />
+          ),
+        }}
+        component={PlazaStack}
+      />
+       <Tabs.Screen
+        name="Guide"
+        options={{
+          headerShown: false,
+          tabBarStyle: { display: "none" },
+          tabBarLabel: "Run",
+          tabBarButton: (props) => <SpecialButton {...props} />,
+        }}
+        component={PlazaStack}
+      />
+             <Tabs.Screen
+        name="Bulletin"
+        options={{
+          headerShown: false,
+          tabBarLabel: "Bulletin",
+          tabBarIcon: ({ color }) => (
+            <Foundation name="clipboard-pencil" size={30} color="black" />
+          ),
+        }}
+        component={PlazaStack}
+      />
+        <Tabs.Screen
         name="PlazaTab"
         options={{
           headerShown: false,
@@ -131,6 +165,7 @@ function TabNavigator() {
         }}
         component={PlazaStack}
       />
+     
       {/* <Tabs.Screen
         name="LogTab"
         options={{
@@ -147,14 +182,26 @@ function TabNavigator() {
   );
 }
 const FinalNavigator = () => {
-
+  const { emailUser, userId } = useContext(AuthContext);
+   //const emailUser = "user"
+  //const emailUser = null;
   return (
-    <FinalStackNav.Navigator>
+    <FinalStackNav.Navigator initialRouteName="LogInStack">
+       
+
+    {emailUser ? (
         <FinalStackNav.Screen
           name="HomeTabnavigator"
           options={{ headerShown: false }}
           component={TabNavigator}
         />
+      ) : (
+        <FinalStackNav.Screen
+          options={{ headerShown: false }}
+          name="LogInStack"
+          component={LogInStack}
+        />
+      )}
     
     </FinalStackNav.Navigator>
   );
@@ -163,7 +210,7 @@ const FinalNavigator = () => {
 const StackNavigator = () => {
   return (
     <Drawer.Navigator
-    // drawerContent={DrawerDesign}
+     drawerContent={DrawerDesign}
     screenOptions={{
       labelStyle: { fontSize: 17, fontWeight: "bold" },
       drawerStyle: {
@@ -191,7 +238,7 @@ export default StackNavigator
 
 const styles = StyleSheet.create({
   customButton: {
-    backgroundColor: Colors.clouds,
+    backgroundColor: Colors.orange,
     height: 70,
     width: 70,
     borderRadius: 50,

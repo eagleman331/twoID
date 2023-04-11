@@ -74,42 +74,42 @@ export default function App() {
       });
   }
 
-  return (
-    <View style={[styles.container, { marginTop: 300 }]}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button
-        title="Google Sign-In"
-        onPress={() =>
-          onGoogleButtonPress().then(() =>
-            console.log("Signed in with Google!")
-          )
-        }
-      />
-      <View style={{ marginTop: 100 }}>
-        <Button
-          title="Facebook Sign-In"
-          onPress={() =>
-            onFacebookButtonPress().then(() =>
-              console.log("Signed in with Facebook!")
-            )
-          }
-        />
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
-  );
   // return (
-  //   <NavigationContainer>
-  //     <GestureHandlerRootView style={styles.container}>
-  //       <AuthContextProvider>
-  //         <TaskContextProvider>
-  //           <StackNavigator />
-  //         </TaskContextProvider>
-  //       </AuthContextProvider>
-  //     </GestureHandlerRootView>
-  //   </NavigationContainer>
+  //   <View style={[styles.container, { marginTop: 300 }]}>
+  //     <Text>Open up App.js to start working on your app!</Text>
+  //     <Button
+  //       title="Google Sign-In"
+  //       onPress={() =>
+  //         onGoogleButtonPress().then(() =>
+  //           console.log("Signed in with Google!")
+  //         )
+  //       }
+  //     />
+  //     <View style={{ marginTop: 100 }}>
+  //       <Button
+  //         title="Facebook Sign-In"
+  //         onPress={() =>
+  //           onFacebookButtonPress().then(() =>
+  //             console.log("Signed in with Facebook!")
+  //           )
+  //         }
+  //       />
+  //     </View>
+
+  //     <StatusBar style="auto" />
+  //   </View>
   // );
+  return (
+    <NavigationContainer>
+      <GestureHandlerRootView style={styles.container}>
+        <AuthContextProvider>
+          <TaskContextProvider>
+            <StackNavigator />
+          </TaskContextProvider>
+        </AuthContextProvider>
+      </GestureHandlerRootView>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Colors from '../../constant/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent: "center",
     padding: 10,
-    backgroundColor: "white"
+    backgroundColor: Colors.ufoGreen
   },
   inputContainer: {
       width:300,

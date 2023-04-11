@@ -40,9 +40,9 @@
       [
         "react-native-fbsdk-next",
         {
-          "appID": "174774031681194",
-          "clientToken": "d29a1c6571ed653f14d7f12803428a92",
-          "displayName": "twoIDAuthentication"
+          "appID": "250082000809941",
+          "clientToken": "5be642f2fba3ed1566072ce7f68a1a55",
+          "displayName": "twoID"
         }
       ]
     ]
