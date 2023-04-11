@@ -22,5 +22,22 @@ export const NarrativeData = [
     {
         id:"6",
         core: "But living in the wilderness isn't just about security and protection. It's also an opportunity to reconnect with nature and live a simpler, more sustainable lifestyle. You can learn to appreciate the natural world and develop a deeper understanding of the environment."
+    },
+    {
+        id:"7",
+        core: "Being a protector in the wilderness can also mean defending the land and its inhabitants from harm. You could work as a park ranger, protecting wildlife and preserving the environment for future generations. Or, you could be a part of a conservation organization, fighting against illegal logging and poaching."
+    },
+    {
+        id:"8",
+        core: "Overall, living in the wilderness as a security or protector can be a challenging and rewarding experience. It requires strength, resilience, and a deep love for nature. But for those who are up for the challenge, it can be a truly fulfilling way of life."
+    },
+    {
+        id:"9",
+        core: "Living in the wilderness can be a great way to protect yourself and your loved ones from outside threats. You can set up your camp in a remote location where you won't be disturbed by unwanted visitors. You can also use your knowledge of the land to stay hidden and avoid detection."
+    },
+    {
+        id:"10",
+        core: "But living in the wilderness isn't just about security and protection. It's also an opportunity to reconnect with nature and live a simpler, more sustainable lifestyle. You can learn to appreciate the natural world and develop a deeper understanding of the environment."
     }
+
 ]

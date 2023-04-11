@@ -29,12 +29,16 @@ import Colors from "../constant/Colors";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaScreen";
+import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
+import TouristMap from "../screens/TouristStack/TouristMap";
 import { AuthContext } from "../context/AuthContext";
 
 const LogInStackNav = createSharedElementStackNavigator();
 const HomeNav = createSharedElementStackNavigator();
+const PhotoNav = createSharedElementStackNavigator();
 const PlazaNav = createSharedElementStackNavigator();
 const FinalStackNav = createSharedElementStackNavigator();
+const TouristStackNav = createSharedElementStackNavigator();
 
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -85,6 +89,28 @@ function HomeStack() {
     </HomeNav.Navigator>
   );
 }
+function PhotoStack() {
+  return (
+    <PhotoNav.Navigator initialRouteName="ListPhoto">
+      <PhotoNav.Screen
+        name="ListPhoto"
+        options={options}
+        component={PhotoListScreen}
+      />
+    </PhotoNav.Navigator>
+  );
+}
+function TouristStack() {
+  return (
+    <TouristStackNav.Navigator initialRouteName="ListPhoto">
+      <TouristStackNav.Screen
+        name="ListPhoto"
+        options={options}
+        component={TouristMap}
+      />
+    </TouristStackNav.Navigator>
+  );
+}
 function PlazaStack() {
   return (
     <PlazaNav.Navigator initialRouteName="Plaza">
@@ -109,7 +135,7 @@ function LogInStack() {
 }
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="HomeTab">
+    <Tabs.Navigator initialRouteName="PhotosTab">
       <Tabs.Screen
         name="HomeTab"
         options={{
@@ -123,7 +149,7 @@ function TabNavigator() {
         component={HomeStack}
       />
         <Tabs.Screen
-        name="Photos"
+        name="PhotosTab"
         options={{
           headerShown: false,
           tabBarLabel: "Photos",
@@ -131,7 +157,7 @@ function TabNavigator() {
             <FontAwesome name="photo" size={24} color="black" />
           ),
         }}
-        component={PlazaStack}
+        component={PhotoStack}
       />
        <Tabs.Screen
         name="Guide"
@@ -141,7 +167,7 @@ function TabNavigator() {
           tabBarLabel: "Run",
           tabBarButton: (props) => <SpecialButton {...props} />,
         }}
-        component={PlazaStack}
+        component={TouristStack}
       />
              <Tabs.Screen
         name="Bulletin"
