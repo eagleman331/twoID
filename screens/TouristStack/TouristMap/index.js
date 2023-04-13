@@ -1,16 +1,23 @@
-import { View, Text, Image, ScrollView, TouchableOpacity, useWindowDimensions } from 'react-native';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  useWindowDimensions,
+} from "react-native";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./styles";
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView } from "react-native";
 import { NarrativeData } from "../../../assets/DataSampleWords/NarrativeData";
-import {API_GOOGLEMAPSDK} from "@env";
-import MapView, { Marker, PROVIDER_GOOGLE, Polyline  } from "react-native-maps";
+import { API_GOOGLEMAPSDK } from "@env";
+import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import * as Location from "expo-location";
-import { BottomSheet } from '@rneui/base';
+import BottomSheet from "@gorhom/bottom-sheet";
 import Colors from "../../../constant/Colors";
 import { Button, Icon } from "@rneui/themed";
 
-const index = ({navigation}) => {
+const index = ({ navigation }) => {
   const [location, setLocation] = useState(null);
   const [locRegion, setLocRegion] = useState(null);
   const [regionLocation, setRegionLocation] = useState(null);
@@ -35,9 +42,9 @@ const index = ({navigation}) => {
     });
   }, []);
   const bottomSheetRef = useRef(null);
-  const closeApp =()=> {
+  const closeApp = () => {
     navigation.goBack();
-  }
+  };
   useEffect(() => {
     const getPermissions = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -65,7 +72,7 @@ const index = ({navigation}) => {
         source={require("../../../assets/Background/treeBackGround.png")}
         style={styles.imageBack}
       />
-            <View style={styles.mapContainer}>
+      <View style={styles.mapContainer}>
         <MapView
           style={{ height: height, width }}
           provider={PROVIDER_GOOGLE}
@@ -84,11 +91,13 @@ const index = ({navigation}) => {
               longitude: region.longitude,
             });
           }}
-        ><Polyline
-        coordinates={dataMeasureLoc}
-        strokeColor= {Colors.blackT}
-        strokeWidth= {5}
-      /></MapView>
+        >
+          <Polyline
+            coordinates={dataMeasureLoc}
+            strokeColor={Colors.blackT}
+            strokeWidth={5}
+          />
+        </MapView>
         <View
           style={{
             position: "absolute",
@@ -98,8 +107,8 @@ const index = ({navigation}) => {
           }}
         >
           <Button
-            title={isActive ? "STOP" :  "START/ RUN"}
-            // onPress={isActive ? stopRun :  startRun}      
+            title={isActive ? "STOP" : "START/ RUN"}
+            onPress={() => navigation.navigate("HomeTab")}
             buttonStyle={{
               backgroundColor: "black",
               borderWidth: 2,
@@ -125,16 +134,15 @@ const index = ({navigation}) => {
             borderBottomEndRadius: 10,
           }}
         >
-          <View style={{alignSelf:"flex-start", position:"absolute", }}>
-          <Icon 
-             name='close'
-             size={30}
-             type='antdesign'
-             color= {Colors.clouds}
-             containerStyle={{}}
-            onPress={closeApp}
-          />
-            
+          <View style={{ alignSelf: "flex-start", position: "absolute" }}>
+            <Icon
+              name="close"
+              size={30}
+              type="antdesign"
+              color={Colors.clouds}
+              containerStyle={{}}
+              onPress={closeApp}
+            />
           </View>
           <View style={{ alignItems: "center" }}>
             <Text style={{ fontSize: 40 }}>
@@ -171,11 +179,9 @@ const index = ({navigation}) => {
                 paddingBottom: 5,
               }}
             >
-              Start  When Ready
+              Start When Ready
             </Text>
-            <Text style={{ letterSpacing: 0.5, color: "grey" }}>
-              ----
-            </Text>
+            <Text style={{ letterSpacing: 0.5, color: "grey" }}>----</Text>
             {/* <FlatList
               data={order}
               renderItem={({ item }) => <OrderListItem order={item} />}
@@ -184,9 +190,7 @@ const index = ({navigation}) => {
         </BottomSheet>
       </View>
 
-
-
-        {/* <ScrollView>
+      {/* <ScrollView>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <View style={styles.logoImageContainer}>
             <Image source={require("../../../assets/junglepopoy.png")} style={styles.logoImage} />
@@ -203,9 +207,8 @@ const index = ({navigation}) => {
       <Text style={{color:"white"}}>End</Text>
     </View>
         </ScrollView> */}
-
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default index
+export default index;

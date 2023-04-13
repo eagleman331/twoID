@@ -102,9 +102,9 @@ function PhotoStack() {
 }
 function TouristStack() {
   return (
-    <TouristStackNav.Navigator initialRouteName="ListPhoto">
+    <TouristStackNav.Navigator initialRouteName="TourMap">
       <TouristStackNav.Screen
-        name="ListPhoto"
+        name="TourMap"
         options={options}
         component={TouristMap}
       />
