@@ -135,7 +135,7 @@ function LogInStack() {
 }
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="PhotosTab">
+    <Tabs.Navigator initialRouteName="PhotoStack">
       <Tabs.Screen
         name="HomeTab"
         options={{
@@ -160,7 +160,7 @@ function TabNavigator() {
         component={PhotoStack}
       />
        <Tabs.Screen
-        name="Guide"
+        name="GuideTab"
         options={{
           headerShown: false,
           tabBarStyle: { display: "none" },
