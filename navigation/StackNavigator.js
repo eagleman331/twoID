@@ -30,10 +30,14 @@ import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaScreen";
 import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
+import BulletinHome from "../screens/Bulletin/BulletinHome"
 import TouristMap from "../screens/TouristStack/TouristMap";
+import Board from "../screens/Board";
 import { AuthContext } from "../context/AuthContext";
 
+
 const LogInStackNav = createSharedElementStackNavigator();
+const BulletinStackNav = createSharedElementStackNavigator();
 const HomeNav = createSharedElementStackNavigator();
 const PhotoNav = createSharedElementStackNavigator();
 const PlazaNav = createSharedElementStackNavigator();
@@ -133,6 +137,23 @@ function LogInStack() {
     </LogInStackNav.Navigator>
   );
 }
+function BulletinStack() {
+  return (
+    <BulletinStackNav.Navigator initialRouteName="Board">
+      <BulletinStackNav.Screen
+        name="Board"
+        options={options}
+        component={Board}
+      />
+      <BulletinStackNav.Screen
+        name="BulletinHome"
+        options={options}
+        component={BulletinHome}
+      />
+    </BulletinStackNav.Navigator>
+  );
+}
+
 function TabNavigator() {
   return (
     <Tabs.Navigator initialRouteName="PhotoStack">
@@ -178,7 +199,7 @@ function TabNavigator() {
             <Foundation name="clipboard-pencil" size={30} color="black" />
           ),
         }}
-        component={PlazaStack}
+        component={BulletinStack}
       />
         <Tabs.Screen
         name="PlazaTab"

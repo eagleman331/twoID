@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState,useContext } from "react";
 import { Icon, Divider } from "@rneui/themed";
-// import OCSlogoNo from "../../../assets/OCSlogoNo.png";
+ import junglepopoy from "../../../assets/junglepopoy.png";
 import Colors from "../../../constant/Colors";
 import { useNavigation } from "@react-navigation/native";
 const { width, height } = Dimensions.get("window");
@@ -29,7 +29,7 @@ const index = () => {
   return (
     <View style={{ backgroundColor: Colors.light, flex: 1 }}>
       <View style={styles.logoContainer}>
-        {/* <Image source={OCSlogoNo} style={styles.logoImage} /> */}
+        <Image source={junglepopoy} style={styles.logoImage} />
       </View>
 
       <View style={{ flexDirection: "row", marginTop: 25, marginLeft: 10 }}>
@@ -44,7 +44,9 @@ const index = () => {
       </View>
       <Divider width={1} inset={true} insetType="right" />
       <View style={{ marginTop: 10 }}>
-        <TouchableOpacity onPress={()=> navigation.navigate("Commander")}>
+        <TouchableOpacity 
+        // onPress={()=> navigation.navigate("Commander")}
+        >
           <View style={{ flexDirection: "row" }}>
             <Icon
               raised
@@ -58,7 +60,9 @@ const index = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate("Indevelopment")}>
+        <TouchableOpacity 
+        // onPress={()=> navigation.navigate("Indevelopment")}
+        >
           <View style={{ flexDirection: "row" }}>
             <Icon
               raised
@@ -70,7 +74,9 @@ const index = () => {
             <Text style={{ alignSelf: "center", marginLeft: 10 }}>Profile</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate("Developer")}>
+        <TouchableOpacity 
+        // onPress={()=> navigation.navigate("Developer")}
+        >
           <View style={{ flexDirection: "row" }}>
             <Icon
               raised

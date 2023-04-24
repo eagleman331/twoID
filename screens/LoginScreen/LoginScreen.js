@@ -30,6 +30,21 @@ const LoginScreen = ({navigation}) => {
       headerShown: false,
     });
   }, []);
+
+  async function SignInAninimously() {
+    auth()
+  .signInAnonymously()
+  .then(() => {
+    console.log('User signed in anonymously');
+  })
+  .catch(error => {
+    if (error.code === 'auth/operation-not-allowed') {
+      console.log('Enable anonymous in your firebase console.');
+    }
+
+    console.error(error);
+  });
+  }
   async function onGoogleButtonPress() {
     // Check if your device supports Google Play
     try {
@@ -100,10 +115,12 @@ const LoginScreen = ({navigation}) => {
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
         console.log('That email address is already in use!');
+        Alert.alert('error', error)
       }
   
       if (error.code === 'auth/invalid-email') {
         console.log('That email address is invalid!');
+        Alert.alert('error', error)
       }
   
       console.error(error);
@@ -137,11 +154,29 @@ const LoginScreen = ({navigation}) => {
         onSubmitEditing={signIn}
       />
     </View>
-    <Button
-      containerStyle={styles.button}
-      onPress={signIn}
-      title="Login"
-    />
+     <Button
+              title="Sign In With Email"
+              onPress={signIn}
+              icon={{
+                name: 'mail',
+                type: 'AntDesign',
+                size: 15,
+                color: 'white',
+              }}
+              iconContainerStyle={{ marginRight: 20 }}
+              titleStyle={{ fontWeight: '700' }}
+              buttonStyle={{
+                backgroundColor: Colors.orange,
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 10,
+              }}
+              containerStyle={{
+                width: width*.7,
+                marginHorizontal: 50,
+                marginVertical: 10,
+              }}
+            />
     <View style={{ flexDirection: "row", marginBottom: 5, alignItems:"center" }}>
       <View
         style={{
@@ -182,7 +217,7 @@ const LoginScreen = ({navigation}) => {
               marginVertical: 10,
             }}
           />
-            <Button
+            {/* <Button
             title="Sign in with Google"
             onPress={onGoogleButtonPress}
             icon={{
@@ -204,7 +239,30 @@ const LoginScreen = ({navigation}) => {
               marginHorizontal: 50,
               marginVertical: 10,
             }}
-          />
+          /> */}
+           <Button
+              title="Login as Guest"
+              onPress={SignInAninimously}
+              icon={{
+                name: 'user',
+                type: 'font-awesome',
+                size: 15,
+                color: 'white',
+              }}
+              iconContainerStyle={{ marginRight: 20 }}
+              titleStyle={{ fontWeight: '700' }}
+              buttonStyle={{
+                backgroundColor: Colors.blackT,
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 10,
+              }}
+              containerStyle={{
+                width: width*.7,
+                marginHorizontal: 50,
+                marginVertical: 10,
+              }}
+            />
 
     <View style={{ height: 100 }} />
   </KeyboardAvoidingView>

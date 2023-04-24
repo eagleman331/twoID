@@ -3,7 +3,6 @@ import {
   Text,
   Image,
   ScrollView,
-  TouchableOpacity,
   useWindowDimensions,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -16,8 +15,15 @@ import * as Location from "expo-location";
 import BottomSheet from "@gorhom/bottom-sheet";
 import Colors from "../../../constant/Colors";
 import { Button, Icon } from "@rneui/themed";
+import { TouchableOpacity as TouchHandler } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
+import OrderListItem from "../../../component/OrderListItem";
+import orders from "../../../assets/data/orders.json";
+import { FlatList } from "react-native";
+import MapViewDirections from "react-native-maps-directions";
 
 const index = ({ navigation }) => {
+  const [driverLocation, setDriverLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [locRegion, setLocRegion] = useState(null);
   const [regionLocation, setRegionLocation] = useState(null);
@@ -33,6 +39,9 @@ const index = ({ navigation }) => {
   const [varLoc, setVarLoc] = useState(null);
   const [distance, setDistance] = useState(0);
   const [speed, setSpeed] = useState(null);
+  const GOOGLE_MAPS_APIKEY = "AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE";
+  const GOOGLE_MAPS_APIKEY2 = "AIzaSyCwB1OIlpYvVxqlE1kUGNnV7zfJwdz--5M";
+
 
   Location.setGoogleApiKey(API_GOOGLEMAPSDK);
 
@@ -62,6 +71,7 @@ const index = ({ navigation }) => {
         longitudeDelta: 0.0021,
       };
       setLocRegion(region);
+      setDriverLocation(region);
     };
     getPermissions();
   }, []);
@@ -92,10 +102,16 @@ const index = ({ navigation }) => {
             });
           }}
         >
-          <Polyline
-            coordinates={dataMeasureLoc}
-            strokeColor={Colors.blackT}
-            strokeWidth={5}
+          <MapViewDirections
+            origin={driverLocation}
+            destination={{
+              latitude: 14.177146784743785,
+              longitude: 121.22189924406904,
+            }}
+            strokeWidth={10}
+            strokeColor="#3FC060"
+            apikey={GOOGLE_MAPS_APIKEY2}
+            
           />
         </MapView>
         <View
@@ -135,15 +151,17 @@ const index = ({ navigation }) => {
           }}
         >
           <View style={{ alignSelf: "flex-start", position: "absolute" }}>
-            <Icon
-              name="close"
-              size={30}
-              type="antdesign"
-              color={Colors.clouds}
-              containerStyle={{}}
-              onPress={closeApp}
-            />
+            <TouchHandler onPress={closeApp}>
+              <Icon
+                name="close"
+                size={30}
+                type="antdesign"
+                color={Colors.clouds}
+                containerStyle={{}}
+              />
+            </TouchHandler>
           </View>
+
           <View style={{ alignItems: "center" }}>
             <Text style={{ fontSize: 40 }}>
               {("0" + Math.floor(time / 3600)).slice(-2)}:
@@ -179,13 +197,13 @@ const index = ({ navigation }) => {
                 paddingBottom: 5,
               }}
             >
-              Start When Ready
+              Locate Tourist Spot
             </Text>
             <Text style={{ letterSpacing: 0.5, color: "grey" }}>----</Text>
-            {/* <FlatList
-              data={order}
+            <FlatList
+              data={orders}
               renderItem={({ item }) => <OrderListItem order={item} />}
-            /> */}
+            />
           </View>
         </BottomSheet>
       </View>
