@@ -20,7 +20,7 @@ import {
   FontAwesome,
   FontAwesome5,
   MaterialCommunityIcons,
-  Foundation
+  Foundation,
 } from "@expo/vector-icons";
 import DrawerDesign from "../component/Drawer/DrawerDesign";
 import { enableScreens } from "react-native-screens";
@@ -30,11 +30,10 @@ import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaScreen";
 import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
-import BulletinHome from "../screens/Bulletin/BulletinHome"
+import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
 import Board from "../screens/Board";
 import { AuthContext } from "../context/AuthContext";
-
 
 const LogInStackNav = createSharedElementStackNavigator();
 const BulletinStackNav = createSharedElementStackNavigator();
@@ -54,8 +53,11 @@ const SpecialButton = (props) => {
         onPress={() => props.onPress()}
         style={styles.customButton}
       >
-
-        <MaterialCommunityIcons name="map-search-outline" size={40} color= {Colors.ufoGreen} />
+        <MaterialCommunityIcons
+          name="map-search-outline"
+          size={40}
+          color={Colors.ufoGreen}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -85,11 +87,7 @@ const options = () => ({
 function HomeStack() {
   return (
     <HomeNav.Navigator initialRouteName="Home">
-      <HomeNav.Screen
-        name="Home"
-        options={options}
-        component={HomeScreen}
-      />
+      <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
     </HomeNav.Navigator>
   );
 }
@@ -118,11 +116,7 @@ function TouristStack() {
 function PlazaStack() {
   return (
     <PlazaNav.Navigator initialRouteName="Plaza">
-      <PlazaNav.Screen
-        name="Plaza"
-        options={options}
-        component={PlazaScreen}
-      />
+      <PlazaNav.Screen name="Plaza" options={options} component={PlazaScreen} />
     </PlazaNav.Navigator>
   );
 }
@@ -156,7 +150,7 @@ function BulletinStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="PhotoStack">
+    <Tabs.Navigator initialRouteName="BulletinTab">
       <Tabs.Screen
         name="HomeTab"
         options={{
@@ -169,7 +163,7 @@ function TabNavigator() {
         }}
         component={HomeStack}
       />
-        <Tabs.Screen
+      <Tabs.Screen
         name="PhotosTab"
         options={{
           headerShown: false,
@@ -180,7 +174,7 @@ function TabNavigator() {
         }}
         component={PhotoStack}
       />
-       <Tabs.Screen
+      <Tabs.Screen
         name="GuideTab"
         options={{
           headerShown: false,
@@ -190,8 +184,8 @@ function TabNavigator() {
         }}
         component={TouristStack}
       />
-             <Tabs.Screen
-        name="Bulletin"
+      <Tabs.Screen
+        name="BulletinTab"
         options={{
           headerShown: false,
           tabBarLabel: "Bulletin",
@@ -201,7 +195,7 @@ function TabNavigator() {
         }}
         component={BulletinStack}
       />
-        <Tabs.Screen
+      <Tabs.Screen
         name="PlazaTab"
         options={{
           headerShown: false,
@@ -212,7 +206,7 @@ function TabNavigator() {
         }}
         component={PlazaStack}
       />
-     
+
       {/* <Tabs.Screen
         name="LogTab"
         options={{
@@ -224,19 +218,16 @@ function TabNavigator() {
         }}
         component={LogInStack}
       /> */}
-     
     </Tabs.Navigator>
   );
 }
 const FinalNavigator = () => {
   const { emailUser, userId } = useContext(AuthContext);
-   //const emailUser = "user"
+  //const emailUser = "user"
   //const emailUser = null;
   return (
     <FinalStackNav.Navigator initialRouteName="LogInStack">
-       
-
-    {emailUser ? (
+      {emailUser ? (
         <FinalStackNav.Screen
           name="HomeTabnavigator"
           options={{ headerShown: false }}
@@ -249,7 +240,6 @@ const FinalNavigator = () => {
           component={LogInStack}
         />
       )}
-    
     </FinalStackNav.Navigator>
   );
 };
@@ -257,31 +247,31 @@ const FinalNavigator = () => {
 const StackNavigator = () => {
   return (
     <Drawer.Navigator
-     drawerContent={DrawerDesign}
-    screenOptions={{
-      labelStyle: { fontSize: 17, fontWeight: "bold" },
-      drawerStyle: {
-        backgroundColor: Colors.light,
-        width: 240,
-      },
-    }}
-    edgeWidth={100}
-  >
-    <Drawer.Screen
-      name="Feed"
-      options={{
-        headerShown: false,
-        drawerLabel: () => null,
-        title: null,
-        drawerIcon: () => null,
+      drawerContent={DrawerDesign}
+      screenOptions={{
+        labelStyle: { fontSize: 17, fontWeight: "bold" },
+        drawerStyle: {
+          backgroundColor: Colors.light,
+          width: 240,
+        },
       }}
-      component={FinalNavigator}
-    />
-  </Drawer.Navigator>
-  )
-}
+      edgeWidth={100}
+    >
+      <Drawer.Screen
+        name="Feed"
+        options={{
+          headerShown: false,
+          drawerLabel: () => null,
+          title: null,
+          drawerIcon: () => null,
+        }}
+        component={FinalNavigator}
+      />
+    </Drawer.Navigator>
+  );
+};
 
-export default StackNavigator
+export default StackNavigator;
 
 const styles = StyleSheet.create({
   customButton: {

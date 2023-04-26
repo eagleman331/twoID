@@ -39,9 +39,8 @@ const index = ({ navigation }) => {
   const [varLoc, setVarLoc] = useState(null);
   const [distance, setDistance] = useState(0);
   const [speed, setSpeed] = useState(null);
-  const GOOGLE_MAPS_APIKEY = "AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE";
+  const GOOGLE_MAPS_APIKEY = "AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8";
   const GOOGLE_MAPS_APIKEY2 = "AIzaSyCwB1OIlpYvVxqlE1kUGNnV7zfJwdz--5M";
-
 
   Location.setGoogleApiKey(API_GOOGLEMAPSDK);
 
@@ -102,17 +101,44 @@ const index = ({ navigation }) => {
             });
           }}
         >
-          <MapViewDirections
+          {/* <Marker
+            coordinate={{
+              latitude: 14.537187129510134,
+              longitude: 121.36427912861802,
+              latitudeDelta: 0.07,
+              longitudeDelta: 0.07,
+            }}
+            title="marker1"
+            description="description1"
+          />
+          <Marker
+            coordinate={{
+              latitude: 14.541445082627884,
+              longitude: 121.36519107963379,
+              latitudeDelta: 0.07,
+              longitudeDelta: 0.07,
+            }}
+            title="Destination"
+            description="description2"
+          /> */}
+          {/* <Polyline
+            coordinates={[
+              { latitude: 14.537187129510134, longitude: 121.36427912861802 },
+              { latitude: 14.541445082627884, longitude: 121.36519107963379 },
+            ]}
+            strokeColor={Colors.blackT}
+            strokeWidth={5}
+          /> */}
+          {/* <MapViewDirections
             origin={driverLocation}
             destination={{
-              latitude: 14.177146784743785,
-              longitude: 121.22189924406904,
+              latitude: 14.535826644291753,
+              longitude: 121.36468682438498,
             }}
             strokeWidth={10}
             strokeColor="#3FC060"
-            apikey={GOOGLE_MAPS_APIKEY2}
-            
-          />
+            apikey={"AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8"}
+          /> */}
         </MapView>
         <View
           style={{
