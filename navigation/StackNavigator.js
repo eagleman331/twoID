@@ -33,6 +33,7 @@ import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
 import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
 import Board from "../screens/Board";
+import PhotoVerticalSlide from "../screens/PhotoStackF/PhotoVerticalSlide"
 import { AuthContext } from "../context/AuthContext";
 
 const LogInStackNav = createSharedElementStackNavigator();
@@ -98,6 +99,11 @@ function PhotoStack() {
         name="ListPhoto"
         options={options}
         component={PhotoListScreen}
+      />
+        <PhotoNav.Screen
+        name="VerticalPhotos"
+        options={options}
+        component={PhotoVerticalSlide}
       />
     </PhotoNav.Navigator>
   );
