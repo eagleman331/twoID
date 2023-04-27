@@ -28,11 +28,11 @@ enableScreens();
 import Colors from "../constant/Colors";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
-import PlazaScreen from "../screens/PlazaScreen";
+import PlazaScreen from "../screens/PlazaStack/PlazaScreen";
 import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
 import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
-import Board from "../screens/Board";
+import Board from "../screens/BoardStack/Board";
 import PhotoVerticalSlide from "../screens/PhotoStackF/PhotoVerticalSlide"
 import { AuthContext } from "../context/AuthContext";
 
@@ -94,7 +94,7 @@ function HomeStack() {
 }
 function PhotoStack() {
   return (
-    <PhotoNav.Navigator initialRouteName="ListPhoto">
+    <PhotoNav.Navigator initialRouteName="VerticalPhotos">
       <PhotoNav.Screen
         name="ListPhoto"
         options={options}

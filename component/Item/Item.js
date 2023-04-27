@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 
 
-const Item = ({navigation, y, index, item, item:{data:{image}}} ) => {
+const Item = ({navigation, y, index, item, item:{data:{facebookPic}}} ) => {
   const title = "IN BOUTIQUES"
   const { completeWork, setCompleteWOrk } = useContext(TaskContext)
   const subtitle= item.data.author
@@ -112,13 +112,14 @@ const Item = ({navigation, y, index, item, item:{data:{image}}} ) => {
       [-top, 0]
     ),
   }));
+  console.log("data", item)
   return (
     <TouchableWithoutFeedback onPress={lipat}>
       <Animated.View style={[styles.container, container]}>
       <SharedElement
                 id={`item.${item.id}.newsImage`}
                 style={[styles.picture]}  >
-        <Image  source={{ uri: image }} style={[styles.picture]} />
+        <Image  source={{ uri: facebookPic }} style={[styles.picture]} />
         </SharedElement>       
         {/* <View style={styles.titleContainer}>
           

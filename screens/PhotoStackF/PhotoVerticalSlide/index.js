@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, StatusBar, ScrollView, StyleSheet, Image } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { items } from '../../../assets/data/Model';
 import Item, { MAX_HEIGHT } from "../../../component/Item/Item";
@@ -8,6 +8,8 @@ import Animated, {
 } from "react-native-reanimated";
 // import { db } from '../../Firebase'
 import Header from '../../../component/Header/Header';
+import firestore from '@react-native-firebase/firestore';
+import Colors from '../../../constant/Colors';
 
 
 const styles = StyleSheet.create({
@@ -33,34 +35,38 @@ const index = ({navigation}) => {
     });
   }, []);
 
-//   useEffect(() => {
-//     const unsubscribe = db.collection("bulletinHome").onSnapshot((snapshot) =>
-//     setData(
-//         snapshot.docs.map((doc) => ({
-//           id: doc.id,
-//           data: doc.data(),
-//         }))
-//       )
-//     );
+  useEffect(() => {
+    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
+    setData(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
 
-//     return unsubscribe;
-//   }, []);
-console.log("data", data)
+    return unsubscribe;
+  }, []);
+
   return (
     <>
       <StatusBar hidden />
+    <View style={{backgroundColor:Colors.clouds}}>
+
       <Header />
+    </View>
       <Animated.ScrollView
         scrollEventThrottle={16}
         onScroll={onScroll}
         snapToInterval={MAX_HEIGHT}
        
       >
-        {/* <Animated.View style={styles.container}>
+
+        <Animated.View style={styles.container}>
         {data.map((item, index) => (
           <Item navigation={navigation} y={y} index={index} item={item} key={index} />
           ))}
-          </Animated.View> */}
+          </Animated.View>
       </Animated.ScrollView>
  
     </>

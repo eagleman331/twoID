@@ -1,15 +1,22 @@
-import { View, Text, Image, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
-import React, { useLayoutEffect } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
+import React, { useLayoutEffect } from "react";
 import styles from "./styles";
-import { SafeAreaView } from 'react-native';
-import Header from '../../component/Header/Header';
-import { PlazaHomeData } from "../../assets/DataSlides/PlazaData";
-import Colors from '../../constant/Colors';
-import { Divider } from '@rneui/themed';
-import { FlatList } from 'react-native';
+import { SafeAreaView } from "react-native";
+import Header from "../../../component/Header/Header";
+import { PlazaHomeData } from "../../../assets/DataSlides/PlazaData";
+import Colors from "../../../constant/Colors";
+import { Divider } from "@rneui/themed";
+import { FlatList } from "react-native";
 const { width, height } = Dimensions.get("window");
 
-const index = ({navigation}) => {
+const index = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -18,12 +25,12 @@ const index = ({navigation}) => {
   return (
     <SafeAreaView>
       <Image
-        source={require("../../assets/Background/treeBackGround.png")}
+        source={require("../../../assets/Background/treeBackGround.png")}
         style={styles.imageBack}
       />
-        <ScrollView>
-          <Header />
-          <View
+      <ScrollView>
+        <Header />
+        <View
           style={{
             alignSelf: "center",
             width: width * 0.9,
@@ -55,7 +62,6 @@ const index = ({navigation}) => {
               renderToHardwareTextureAndroid
               contentContainerStyle={{ alignItems: "center" }}
               renderItem={({ item, index }) => {
-
                 return (
                   <View
                     key={index}
@@ -65,26 +71,22 @@ const index = ({navigation}) => {
                     }}
                   >
                     <View style={styles.socialMedia}>
-                      <TouchableOpacity
-       
-                      >
+                      <TouchableOpacity>
                         <View
                           style={{
                             backgroundColor: Colors.light,
                             width: width * 0.4,
                             height: width * 0.4,
                             borderRadius: 9,
-                            justifyContent:"center",
-                            alignItems:"center"
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
-                         <Image source={{uri: item.icon}} 
-                         style={{  width: width * 0.3,
-                          height: width * 0.3,
-                        
-                        }}
-                         />
-                         <Text>{item.core}</Text>
+                          <Image
+                            source={{ uri: item.icon }}
+                            style={{ width: width * 0.3, height: width * 0.3 }}
+                          />
+                          <Text>{item.core}</Text>
                         </View>
                       </TouchableOpacity>
                     </View>
@@ -118,49 +120,45 @@ const index = ({navigation}) => {
                 contentContainerStyle={{ alignItems: "center" }}
                 renderItem={({ item, index }) => {
                   return ( */}
+              <View
+                key={index}
+                style={{
+                  marginTop: 10,
+                  marginRight: 10,
+                }}
+              >
+                <View style={styles.socialMedia}>
+                  <TouchableOpacity>
                     <View
-                      key={index}
                       style={{
-                        marginTop: 10,
-                        marginRight: 10,
+                        backgroundColor: Colors.light,
+                        width: width * 0.4,
+                        height: width * 0.4,
+                        borderRadius: 9,
+                        justifyContent: "center",
+                        alignItems: "center",
                       }}
                     >
-                      <View style={styles.socialMedia}>
-                        <TouchableOpacity
-                      
-                        >
-  <View
-                          style={{
-                            backgroundColor: Colors.light,
-                            width: width * 0.4,
-                            height: width * 0.4,
-                            borderRadius: 9,
-                            justifyContent:"center",
-                            alignItems:"center"
-                          }}
-                        >
-                         <Image source={{uri: "https://cdn-icons-png.flaticon.com/512/9717/9717820.png"}} 
-                         style={{  width: width * 0.3,
-                          height: width * 0.3,
-                        
+                      <Image
+                        source={{
+                          uri: "https://cdn-icons-png.flaticon.com/512/9717/9717820.png",
                         }}
-                         />
-                         <Text>Running</Text>
-                        </View>
-                        </TouchableOpacity>
-                      </View>
+                        style={{ width: width * 0.3, height: width * 0.3 }}
+                      />
+                      <Text>Running</Text>
                     </View>
-                  {/* );
+                  </TouchableOpacity>
+                </View>
+              </View>
+              {/* );
                 }}
               /> */}
             </View>
           </View>
         </View>
-  
-        </ScrollView>
-
+      </ScrollView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet } from "react-native";
 
 const { width, height } = Dimensions.get("window");
-import Colors from "../../constant/Colors";
+import Colors from "../../../constant/Colors";
 
 const styles = StyleSheet.create({
   imageBack: {
