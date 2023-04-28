@@ -114,7 +114,9 @@ const Item = ({navigation, y, index, item, item:{data:{facebookPic}}} ) => {
   }));
   console.log("data", item)
   return (
-    <TouchableWithoutFeedback onPress={lipat}>
+    <TouchableWithoutFeedback 
+    // onPress={lipat}
+    >
       <Animated.View style={[styles.container, container]}>
       <SharedElement
                 id={`item.${item.id}.newsImage`}

@@ -14,6 +14,7 @@ import {
   View,
   StyleSheet,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 const { width } = Dimensions.get('screen');
 import { EvilIcons } from '@expo/vector-icons';
@@ -220,6 +221,10 @@ export default function index({navigation}) {
               });
 
               return (
+                <TouchableOpacity 
+                onPress={()=> navigation
+                .navigate("BoardDetails", {item })}
+                >
                 <Animated.View
                   style={{
                     position: 'absolute',
@@ -242,6 +247,8 @@ export default function index({navigation}) {
                     }}
                   />
                 </Animated.View>
+
+                </TouchableOpacity>
               );
             }}
           />

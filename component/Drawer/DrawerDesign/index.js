@@ -45,7 +45,7 @@ const index = () => {
       <Divider width={1} inset={true} insetType="right" />
       <View style={{ marginTop: 10 }}>
         <TouchableOpacity 
-        // onPress={()=> navigation.navigate("Commander")}
+        onPress={()=> navigation.navigate("Commander")}
         >
           <View style={{ flexDirection: "row" }}>
             <Icon
@@ -60,8 +60,8 @@ const index = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity 
-        // onPress={()=> navigation.navigate("Indevelopment")}
+        {/* <TouchableOpacity 
+        onPress={()=> navigation.navigate("Indevelopment")}
         >
           <View style={{ flexDirection: "row" }}>
             <Icon
@@ -73,9 +73,9 @@ const index = () => {
             />
             <Text style={{ alignSelf: "center", marginLeft: 10 }}>Profile</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity 
-        // onPress={()=> navigation.navigate("Developer")}
+        onPress={()=> navigation.navigate("Developer")}
         >
           <View style={{ flexDirection: "row" }}>
             <Icon
@@ -91,7 +91,7 @@ const index = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity  
-        onPress={() => WebBrowser.openBrowserAsync('https://play.google.com/store/apps/details?id=com.eagleman33.SecurityForcesExam')}>
+        onPress={() => WebBrowser.openBrowserAsync('https://play.google.com/store/apps/details?id=com.eagleman33.twoID')}>
           <View style={{ flexDirection: "row" }}>
             <Icon
               raised

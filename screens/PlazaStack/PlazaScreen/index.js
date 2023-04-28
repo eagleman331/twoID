@@ -9,8 +9,14 @@ import {
 import React, { useLayoutEffect } from "react";
 import styles from "./styles";
 import { SafeAreaView } from "react-native";
+import { openBrowserAsync } from "expo-web-browser";
 import Header from "../../../component/Header/Header";
 import { PlazaHomeData } from "../../../assets/DataSlides/PlazaData";
+
+import {PushUpData} from "../../../assets/DataSlides/PftSlidesFAQs/Push-UpFAQs";
+import {RunningData} from "../../../assets/DataSlides/PftSlidesFAQs/RunningFAQs";
+import {SitUpData} from "../../../assets/DataSlides/PftSlidesFAQs/SitUpFAQs";
+
 import Colors from "../../../constant/Colors";
 import { Divider } from "@rneui/themed";
 import { FlatList } from "react-native";
@@ -22,6 +28,20 @@ const index = ({ navigation }) => {
       headerShown: false,
     });
   }, []);
+
+  const navigateToPftViewer = (item) => {
+    const core = item.core
+    if (core == "Push-Up"){
+      navigation.navigate("PftViewer", {PftData : PushUpData})
+    }else if(core == "Sit-Up"){
+      navigation.navigate("PftViewer", {PftData :SitUpData})
+    }else if(core == "Running"){
+      navigation.navigate("PftViewer", {PftData : RunningData})
+    }
+  };
+  const GoToYoutube = () => {
+    openBrowserAsync("https://www.youtube.com/@2idjunglefighter");
+  };
   return (
     <SafeAreaView>
       <Image
@@ -71,7 +91,10 @@ const index = ({ navigation }) => {
                     }}
                   >
                     <View style={styles.socialMedia}>
-                      <TouchableOpacity>
+                      <TouchableOpacity
+                      
+                      onPress={() => navigateToPftViewer(item)}
+                      >
                         <View
                           style={{
                             backgroundColor: Colors.light,
@@ -128,7 +151,9 @@ const index = ({ navigation }) => {
                 }}
               >
                 <View style={styles.socialMedia}>
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                   onPress={GoToYoutube}
+                  >
                     <View
                       style={{
                         backgroundColor: Colors.light,

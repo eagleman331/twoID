@@ -29,12 +29,17 @@ import Colors from "../constant/Colors";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaStack/PlazaScreen";
+import PftViewer from "../screens/PlazaStack/PftViewer"
 import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
 import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
 import Board from "../screens/BoardStack/Board";
 import PhotoVerticalSlide from "../screens/PhotoStackF/PhotoVerticalSlide"
 import { AuthContext } from "../context/AuthContext";
+import Commander from "../component/Drawer/CommanderScreen/Commander";
+import DeveloperScreen from "../component/Drawer/DeveloperScreen";
+import IndevelopmentScreen from "../component/Drawer/IndevelopmentScreen";
+import BoardDetails from "../screens/BoardStack/BoardDetails"
 
 const LogInStackNav = createSharedElementStackNavigator();
 const BulletinStackNav = createSharedElementStackNavigator();
@@ -43,6 +48,7 @@ const PhotoNav = createSharedElementStackNavigator();
 const PlazaNav = createSharedElementStackNavigator();
 const FinalStackNav = createSharedElementStackNavigator();
 const TouristStackNav = createSharedElementStackNavigator();
+const IndevelopmentStackNav = createSharedElementStackNavigator();
 
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -123,6 +129,14 @@ function PlazaStack() {
   return (
     <PlazaNav.Navigator initialRouteName="Plaza">
       <PlazaNav.Screen name="Plaza" options={options} component={PlazaScreen} />
+
+      <PlazaNav.Screen
+        name="PftViewer"
+        options={(navigation) => ({
+          tabBarVisible: false,
+        })}
+        component={PftViewer}
+      />
     </PlazaNav.Navigator>
   );
 }
@@ -145,12 +159,28 @@ function BulletinStack() {
         options={options}
         component={Board}
       />
+         <BulletinStackNav.Screen
+        name="BoardDetails"
+        options={options}
+        component={BoardDetails}
+      />
       <BulletinStackNav.Screen
         name="BulletinHome"
         options={options}
         component={BulletinHome}
       />
     </BulletinStackNav.Navigator>
+  );
+};
+function IndevelopmentStack() {
+  return (
+    <IndevelopmentStackNav.Navigator>
+      <IndevelopmentStackNav.Screen
+        name="Dev"
+        //  options={options}
+        component={IndevelopmentScreen}
+      />
+    </IndevelopmentStackNav.Navigator>
   );
 }
 
@@ -272,6 +302,21 @@ const StackNavigator = () => {
           drawerIcon: () => null,
         }}
         component={FinalNavigator}
+      />
+        <Drawer.Screen
+        name="Commander"
+        options={{ headerShown: false, drawerLabel: "President Duterte" }}
+        component={Commander}
+      />
+       <Drawer.Screen
+        name="Developer"
+        options={{ headerShown: false, drawerLabel: "App Developer" }}
+        component={DeveloperScreen}
+      />
+        <Drawer.Screen
+        name="Indevelopment"
+        options={{ headerShown: false, drawerLabel: "Indevelopment" }}
+        component={IndevelopmentStack}
       />
     </Drawer.Navigator>
   );
