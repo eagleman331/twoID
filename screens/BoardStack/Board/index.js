@@ -3,7 +3,7 @@
  * Inspiration: https://dribbble.com/shots/3731362-Event-cards-iOS-interaction
  */
 
-import * as React from 'react';
+import * as React from "react";
 import {
   StatusBar,
   Image,
@@ -15,65 +15,74 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-} from 'react-native';
-const { width } = Dimensions.get('screen');
-import { EvilIcons } from '@expo/vector-icons';
+  useWindowDimensions,
+} from "react-native";
+const { width } = Dimensions.get("screen");
+import { EvilIcons } from "@expo/vector-icons";
 import {
   FlingGestureHandler,
   Directions,
   State,
-} from 'react-native-gesture-handler';
+} from "react-native-gesture-handler";
+import { SharedElement } from "react-native-shared-element";
 
 // https://www.creative-flyers.com
 const DATA = [
   {
-    title: 'Afro vibes',
-    location: 'Mumbai, India',
-    date: 'Nov 17th, 2020',
+    key:"1",
+    title: "Afro vibes",
+    location: "Mumbai, India",
+    date: "Nov 17th, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/07/Afro-vibes-flyer-template.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/07/Afro-vibes-flyer-template.jpg",
   },
   {
-    title: 'Jungle Party',
-    location: 'Unknown',
-    date: 'Sept 3rd, 2020',
+    key:"2",
+    title: "Jungle Party",
+    location: "Unknown",
+    date: "Sept 3rd, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2019/11/Jungle-Party-Flyer-Template-1.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2019/11/Jungle-Party-Flyer-Template-1.jpg",
   },
   {
-    title: '4th Of July',
-    location: 'New York, USA',
-    date: 'Oct 11th, 2020',
+    key:"3",
+    title: "4th Of July",
+    location: "New York, USA",
+    date: "Oct 11th, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/06/4th-Of-July-Invitation.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/06/4th-Of-July-Invitation.jpg",
   },
   {
-    title: 'Summer festival',
-    location: 'Bucharest, Romania',
-    date: 'Aug 17th, 2020',
+    key:"4",
+    title: "Summer festival",
+    location: "Bucharest, Romania",
+    date: "Aug 17th, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/07/Summer-Music-Festival-Poster.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/07/Summer-Music-Festival-Poster.jpg",
   },
   {
-    title: 'BBQ with friends',
-    location: 'Prague, Czech Republic',
-    date: 'Sept 11th, 2020',
+    key:"5",
+    title: "BBQ with friends",
+    location: "Prague, Czech Republic",
+    date: "Sept 11th, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/06/BBQ-Flyer-Psd-Template.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/06/BBQ-Flyer-Psd-Template.jpg",
   },
   {
-    title: 'Festival music',
-    location: 'Berlin, Germany',
-    date: 'Apr 21th, 2021',
+    key:"6",
+    title: "Festival music",
+    location: "Berlin, Germany",
+    date: "Apr 21th, 2021",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/06/Festival-Music-PSD-Template.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/06/Festival-Music-PSD-Template.jpg",
   },
   {
-    title: 'Beach House',
-    location: 'Liboa, Portugal',
-    date: 'Aug 12th, 2020',
+    key:"7",
+    title: "Beach House",
+    location: "Liboa, Portugal",
+    date: "Aug 12th, 2020",
     poster:
-      'https://www.creative-flyers.com/wp-content/uploads/2020/06/Summer-Beach-House-Flyer.jpg',
+      "https://www.creative-flyers.com/wp-content/uploads/2020/06/Summer-Beach-House-Flyer.jpg",
   },
 ];
 
@@ -101,9 +110,9 @@ const OverflowItems = ({ data, scrollXAnimated }) => {
               <View style={styles.itemContainerRow}>
                 <Text style={[styles.location]}>
                   <EvilIcons
-                    name='location'
+                    name="location"
                     size={16}
-                    color='black'
+                    color="black"
                     style={{ marginRight: 5 }}
                   />
                   {item.location}
@@ -118,11 +127,13 @@ const OverflowItems = ({ data, scrollXAnimated }) => {
   );
 };
 
-export default function index({navigation}) {
+export default function index({ navigation }) {
   const [data, setData] = React.useState(DATA);
   const scrollXIndex = React.useRef(new Animated.Value(0)).current;
   const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
   const [index, setIndex] = React.useState(0);
+
+  const { width, height } = useWindowDimensions();
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -152,7 +163,7 @@ export default function index({navigation}) {
 
   return (
     <FlingGestureHandler
-      key='left'
+      key="left"
       direction={Directions.LEFT}
       onHandlerStateChange={(ev) => {
         if (ev.nativeEvent.state === State.END) {
@@ -164,7 +175,7 @@ export default function index({navigation}) {
       }}
     >
       <FlingGestureHandler
-        key='right'
+        key="right"
         direction={Directions.RIGHT}
         onHandlerStateChange={(ev) => {
           if (ev.nativeEvent.state === State.END) {
@@ -180,12 +191,13 @@ export default function index({navigation}) {
           <OverflowItems data={data} scrollXAnimated={scrollXAnimated} />
           <FlatList
             data={data}
-            keyExtractor={(_, index) => String(index)}
+            // keyExtractor={(_, index) => String(index)}
+            keyExtractor={(item) => item.key}
             horizontal
             inverted
             contentContainerStyle={{
               flex: 1,
-              justifyContent: 'center',
+              justifyContent: "center",
               padding: SPACING * 2,
               marginTop: 50,
             }}
@@ -221,37 +233,49 @@ export default function index({navigation}) {
               });
 
               return (
-                <TouchableOpacity 
-                onPress={()=> navigation
-                .navigate("BoardDetails", {item })}
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("BoardDetails", { item })}
                 >
-                <Animated.View
-                  style={{
-                    position: 'absolute',
-                    left: -ITEM_WIDTH / 2,
-                    opacity,
-                    transform: [
-                      {
-                        translateX,
-                      },
-                      { scale },
-                    ],
-                  }}
-                >
-                  <Image
-                    source={{ uri: item.poster }}
+                  <Animated.View
                     style={{
-                      width: ITEM_WIDTH,
-                      height: ITEM_HEIGHT,
-                      borderRadius: 14,
+                      position: "absolute",
+                      left: -ITEM_WIDTH / 2,
+                      opacity,
+                      transform: [
+                        {
+                          translateX,
+                        },
+                        { scale },
+                      ],
                     }}
-                  />
-                </Animated.View>
+                  >
+                     <SharedElement id={`item.${item.key}.image`}  >
+                    <Image
+                      source={{ uri: item.poster }}
+                      style={{
+                        width: ITEM_WIDTH,
+                        height: ITEM_HEIGHT,
+                        borderRadius: 14,
+                      }}
+                    />
 
+            </SharedElement>
+                  </Animated.View>
                 </TouchableOpacity>
               );
             }}
           />
+          <SharedElement id="general.bg" style={[ 
+            StyleSheet.absoluteFillObject,{ transform:[{translateY:height}]}
+            ]} >
+             
+          <View
+            style={[
+             
+              { backgroundColor: "#fff", borderRadius:16}
+            ]}
+          />
+          </SharedElement>
         </SafeAreaView>
       </FlingGestureHandler>
     </FlingGestureHandler>
@@ -261,13 +285,13 @@ export default function index({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#fff',
+    justifyContent: "center",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 24,
-    fontWeight: '900',
-    textTransform: 'uppercase',
+    fontWeight: "900",
+    textTransform: "uppercase",
     letterSpacing: -1,
   },
   location: {
@@ -281,12 +305,12 @@ const styles = StyleSheet.create({
     padding: SPACING * 2,
   },
   itemContainerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   overflowContainer: {
     height: OVERFLOW_HEIGHT,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
 });

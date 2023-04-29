@@ -158,6 +158,9 @@ const index = () => {
           </View>
         </TouchableOpacity>
       </View>
+
+       
+
     </View>
   );
 };
