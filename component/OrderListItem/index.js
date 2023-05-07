@@ -1,13 +1,23 @@
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image, Pressable, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "../../constant/Colors";
+import { TaskContext } from "../../context/TaskContext";
+import { useContext } from "react";
 
-const OrderListItem = ({ order }) => {
+const OrderListItem = ({ item }) => {
   const navigation = useNavigation();
+  const { width, height } = useWindowDimensions();
+  const { selectedTouristSpot,
+    setSelectedTouristSpot} = useContext(TaskContext)
+
+  
 
   return (
     <Pressable
-      onPress={() => navigation.navigate("Recruitment", { id: order.id })}
+      onPress={() => {
+        setSelectedTouristSpot(item)
+        navigation.navigate("TourDirections", item)
+      }}
       style={{
         flexDirection: "row",
         margin: 10,
@@ -16,22 +26,26 @@ const OrderListItem = ({ order }) => {
         borderRadius: 3,
         padding: 5,
         borderColor: Colors.money,
+        width:width *.9
       }}
     >
       <Image
-        source={{ uri: order.Restaurant.image }}
+        source={{uri:item.data.facebookPic}}
         style={{ width: 75, height: 75, marginRight: 5, borderRadius: 5 }}
       />
 
       <View>
         <Text style={{ fontWeight: "600", fontSize: 16 }}>
-          {order.Restaurant.name}
+          author: 
+          {item.data.author}
         </Text>
         <Text style={{ marginVertical: 5, color: Colors.blackT }}>
           3 items &#8226; $38.45
         </Text>
         <Text style={{ color: Colors.gray }}>
-          2 days ago &#8226; {order.status}{" "}
+          2 days ago &#8226; 
+          {item.data.agency}
+          {" "}
         </Text>
       </View>
     </Pressable>

@@ -26,7 +26,8 @@ import firestore from '@react-native-firebase/firestore';
 import { TaskContext } from "../../../context/TaskContext";
 import { useContext } from "react";
 
-const index = ({ navigation }) => {
+const index = ({ navigation, route }) => {
+  const { item } = route.params;
   const [driverLocation, setDriverLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [locRegion, setLocRegion] = useState(null);
@@ -56,7 +57,7 @@ const index = ({ navigation }) => {
   }, []);
   const bottomSheetRef = useRef(null);
   const closeApp = () => {
-    navigation.goBack();
+    navigation.navigate("TourMap");
   };
   useEffect(() => {
     const getPermissions = async () => {
@@ -79,36 +80,7 @@ const index = ({ navigation }) => {
     };
     getPermissions();
   }, []);
-  useEffect(() => {
-    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
-    setData(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-
-    return unsubscribe;
-  }, []);
-
-  const labasDirection =()=> {
-
-        if (selectedTouristSpot === null || undefined) {
-          return (
-            <MapViewDirections
-            origin={driverLocation}
-            destination={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498,
-            }}
-            strokeWidth={10}
-            strokeColor="#3FC060"
-            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
-          />
-          )
-        }
-  }
+ 
   console.log("firebase", selectedTouristSpot)
   return (
     <SafeAreaView>
@@ -144,16 +116,7 @@ const index = ({ navigation }) => {
             title="Destination"
             description="description2"
           />
-          {/* <Polyline
-            coordinates={[
-              { latitude: 14.537187129510134, longitude: 121.36427912861802 },
-              { latitude: 14.541445082627884, longitude: 121.36519107963379 },
-            ]}
-            strokeColor={Colors.blackT}
-            strokeWidth={5}
-          /> */}
-       
-          {/* <MapViewDirections
+          <MapViewDirections
             origin={driverLocation}
             destination={{
               latitude: 14.535826644291753,
@@ -162,8 +125,7 @@ const index = ({ navigation }) => {
             strokeWidth={10}
             strokeColor="#3FC060"
             apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
-          /> */}
-          {labasDirection()}
+          />
           
         </MapView>
         
@@ -241,7 +203,7 @@ const index = ({ navigation }) => {
           index={0}
           handleIndicatorStyle={{ backgroundColor: "gray", width: 100 }}
         >
-          <View style={{ flex: 1, alignItems: "center" }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 fontSize: 20,
@@ -250,34 +212,28 @@ const index = ({ navigation }) => {
                 paddingBottom: 5,
               }}
             >
-              Locate Tourist Spot
+              Ynares Gym
             </Text>
             <Text style={{ letterSpacing: 0.5, color: "grey" }}>----</Text>
-            <FlatList
+           
+            {/* <FlatList
               data={data}
               renderItem={({ item }) => <OrderListItem item={item} />}
-            />
+            /> */}
           </View>
+          <View>
+
+          <View>
+            <Text>Details</Text>
+          </View>
+          <View>
+            <Text>Description</Text>
+          </View>
+          </View>
+        
         </BottomSheet>
       </View>
-
-      {/* <ScrollView>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <View style={styles.logoImageContainer}>
-            <Image source={require("../../../assets/junglepopoy.png")} style={styles.logoImage} />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.firstTextContainer}>
-          
-              <Text style={styles.firstText} >
-                Test Tourist
-              </Text>
-        </View>
-
-    <View>
-      <Text style={{color:"white"}}>End</Text>
-    </View>
-        </ScrollView> */}
+      
     </SafeAreaView>
   );
 };

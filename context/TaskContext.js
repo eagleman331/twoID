@@ -19,7 +19,7 @@ const TaskContextProvider = (props) => {
     timestamp: null,
   });
   const [ready, setReady] = useState();
-
+  const [selectedTouristSpot, setSelectedTouristSpot] = useState({})
   const [dataQuestion, setDataQuestion] = useState([]);
   const [quizData, setQuizData] = useState([]);
   const [score, setScore] = useState(0);
@@ -58,6 +58,7 @@ const TaskContextProvider = (props) => {
         setListSubprofession,
         testData,
         setTestData,
+       
   }))
 
   return (
@@ -85,7 +86,10 @@ const TaskContextProvider = (props) => {
       listSubprofession,
       setListSubprofession,
       testData,
-      setTestData}}
+      setTestData,
+      selectedTouristSpot,
+      setSelectedTouristSpot
+    }}
     >
       {props.children}
     </TaskContext.Provider>
