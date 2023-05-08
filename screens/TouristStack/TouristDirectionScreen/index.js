@@ -26,7 +26,8 @@ import firestore from '@react-native-firebase/firestore';
 import { TaskContext } from "../../../context/TaskContext";
 import { useContext } from "react";
 
-const index = ({ navigation }) => {
+const index = ({ navigation, route }) => {
+  const { item } = route.params;
   const [driverLocation, setDriverLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [locRegion, setLocRegion] = useState(null);
@@ -43,8 +44,9 @@ const index = ({ navigation }) => {
   const [varLoc, setVarLoc] = useState(null);
   const [distance, setDistance] = useState(0);
   const [speed, setSpeed] = useState(null);
-  const GOOGLE_MAPS_APIKEY = "AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8";
-  const GOOGLE_MAPS_APIKEY2 = "AIzaSyCwB1OIlpYvVxqlE1kUGNnV7zfJwdz--5M";
+
+  const { selectedTouristSpot,
+    setSelectedTouristSpot} = useContext(TaskContext)
 
   Location.setGoogleApiKey(API_GOOGLEMAPSDK);
 
@@ -55,7 +57,7 @@ const index = ({ navigation }) => {
   }, []);
   const bottomSheetRef = useRef(null);
   const closeApp = () => {
-    navigation.goBack();
+    navigation.navigate("TourMap");
   };
   useEffect(() => {
     const getPermissions = async () => {
@@ -78,36 +80,7 @@ const index = ({ navigation }) => {
     };
     getPermissions();
   }, []);
-  useEffect(() => {
-    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
-    setData(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-
-    return unsubscribe;
-  }, []);
-
-  const labasDirection =()=> {
-
-        if (selectedTouristSpot === null || undefined) {
-          return (
-            <MapViewDirections
-            origin={driverLocation}
-            destination={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498,
-            }}
-            strokeWidth={10}
-            strokeColor="#3FC060"
-            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
-          />
-          )
-        }
-  }
+ 
   console.log("firebase", selectedTouristSpot)
   return (
     <SafeAreaView>
@@ -135,45 +108,27 @@ const index = ({ navigation }) => {
             });
           }}
         >
-          {/* <Marker
-            coordinate={{
-              latitude: 14.537187129510134,
-              longitude: 121.36427912861802,
-              latitudeDelta: 0.07,
-              longitudeDelta: 0.07,
-            }}
-            title="marker1"
-            description="description1"
-          />
           <Marker
             coordinate={{
-              latitude: 14.541445082627884,
-              longitude: 121.36519107963379,
-              latitudeDelta: 0.07,
-              longitudeDelta: 0.07,
+              latitude: 14.535826644291753,
+              longitude: 121.36468682438498           
             }}
             title="Destination"
             description="description2"
           />
-          {/* <Polyline
-            coordinates={[
-              { latitude: 14.537187129510134, longitude: 121.36427912861802 },
-              { latitude: 14.541445082627884, longitude: 121.36519107963379 },
-            ]}
-            strokeColor={Colors.blackT}
-            strokeWidth={5}
-          /> */}
-          {/* <MapViewDirections
+          <MapViewDirections
             origin={driverLocation}
             destination={{
               latitude: 14.535826644291753,
               longitude: 121.36468682438498,
             }}
-            strokeWidth={3}
+            strokeWidth={10}
             strokeColor="#3FC060"
-            apikey={"AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8"}
-          /> */}
+            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
+          />
+          
         </MapView>
+        
         <View
           style={{
             position: "absolute",
@@ -199,7 +154,7 @@ const index = ({ navigation }) => {
             }}
             titleStyle={{ fontWeight: "bold" }}
           />
-        </View> */}
+        </View>
         <View
           style={{
             position: "absolute",
@@ -238,7 +193,7 @@ const index = ({ navigation }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Text style={{ fontSize: 15 }}>Speed: {time}</Text>
+            <Text style={{ fontSize: 15 }}>Speed: 100 km/hr</Text>
             <Text style={{ fontSize: 15 }}>Distance: 100 km</Text>
           </View>
         </View>
@@ -248,7 +203,7 @@ const index = ({ navigation }) => {
           index={0}
           handleIndicatorStyle={{ backgroundColor: "gray", width: 100 }}
         >
-          <View style={{ flex: 1, alignItems: "center" }}>
+          <View style={{ alignItems: "center" }}>
             <Text
               style={{
                 fontSize: 20,
@@ -257,34 +212,28 @@ const index = ({ navigation }) => {
                 paddingBottom: 5,
               }}
             >
-              Locate Tourist Spot
+              Ynares Gym
             </Text>
             <Text style={{ letterSpacing: 0.5, color: "grey" }}>----</Text>
-            <FlatList
+           
+            {/* <FlatList
               data={data}
               renderItem={({ item }) => <OrderListItem item={item} />}
-            />
+            /> */}
           </View>
+          <View>
+
+          <View>
+            <Text>Details</Text>
+          </View>
+          <View>
+            <Text>Description</Text>
+          </View>
+          </View>
+        
         </BottomSheet>
       </View>
-
-      {/* <ScrollView>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <View style={styles.logoImageContainer}>
-            <Image source={require("../../../assets/junglepopoy.png")} style={styles.logoImage} />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.firstTextContainer}>
-          
-              <Text style={styles.firstText} >
-                Test Tourist
-              </Text>
-        </View>
-
-    <View>
-      <Text style={{color:"white"}}>End</Text>
-    </View>
-        </ScrollView> */}
+      
     </SafeAreaView>
   );
 };

@@ -39,7 +39,8 @@ import { AuthContext } from "../context/AuthContext";
 import Commander from "../component/Drawer/CommanderScreen/Commander";
 import DeveloperScreen from "../component/Drawer/DeveloperScreen";
 import IndevelopmentScreen from "../component/Drawer/IndevelopmentScreen";
-import BoardDetails from "../screens/BoardStack/BoardDetails"
+import BoardDetails from "../screens/BoardStack/BoardDetails";
+import TouristDirectionScreen from "../screens/TouristStack/TouristDirectionScreen";
 
 const LogInStackNav = createSharedElementStackNavigator();
 const BulletinStackNav = createSharedElementStackNavigator();
@@ -121,6 +122,11 @@ function TouristStack() {
         name="TourMap"
         options={options}
         component={TouristMap}
+      />
+       <TouristStackNav.Screen
+        name="TourDirections"
+        options={options}
+        component={TouristDirectionScreen}
       />
     </TouristStackNav.Navigator>
   );
