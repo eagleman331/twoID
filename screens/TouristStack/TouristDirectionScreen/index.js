@@ -26,8 +26,8 @@ import firestore from '@react-native-firebase/firestore';
 import { TaskContext } from "../../../context/TaskContext";
 import { useContext } from "react";
 
-const index = ({ navigation, route }) => {
-  const { item } = route.params;
+const index = ({ navigation }) => {
+
   const [driverLocation, setDriverLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [locRegion, setLocRegion] = useState(null);
@@ -57,7 +57,7 @@ const index = ({ navigation, route }) => {
   }, []);
   const bottomSheetRef = useRef(null);
   const closeApp = () => {
-    navigation.navigate("TourMap");
+    navigation.navigate("HomeTab");
   };
   useEffect(() => {
     const getPermissions = async () => {
@@ -81,7 +81,7 @@ const index = ({ navigation, route }) => {
     getPermissions();
   }, []);
  
-  console.log("firebase", selectedTouristSpot)
+ 
   return (
     <SafeAreaView>
       <Image
@@ -110,8 +110,8 @@ const index = ({ navigation, route }) => {
         >
           <Marker
             coordinate={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498           
+              latitude: 14.536587, 
+              longitude: 121.363927,    
             }}
             title="Destination"
             description="description2"
@@ -119,8 +119,8 @@ const index = ({ navigation, route }) => {
           <MapViewDirections
             origin={driverLocation}
             destination={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498,
+              latitude: 14.536587, 
+              longitude: 121.363927,       
             }}
             strokeWidth={10}
             strokeColor="#3FC060"
@@ -137,23 +137,7 @@ const index = ({ navigation, route }) => {
             alignSelf: "center",
           }}
         >
-          <Button
-            title={isActive ? "STOP" : "START/ RUN"}
-            onPress={() => navigation.navigate("HomeTab")}
-            buttonStyle={{
-              backgroundColor: "black",
-              borderWidth: 2,
-              borderColor: "white",
-              borderRadius: 30,
-            }}
-            containerStyle={{
-              width: 200,
-              marginHorizontal: 50,
-              marginVertical: 10,
-              padding: 10,
-            }}
-            titleStyle={{ fontWeight: "bold" }}
-          />
+        
         </View>
         <View
           style={{

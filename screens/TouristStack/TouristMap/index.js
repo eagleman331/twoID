@@ -44,8 +44,6 @@ const index = ({ navigation }) => {
   const [distance, setDistance] = useState(0);
   const [speed, setSpeed] = useState(null);
 
-  const { selectedTouristSpot,
-    setSelectedTouristSpot} = useContext(TaskContext)
 
   Location.setGoogleApiKey(API_GOOGLEMAPSDK);
 
@@ -62,7 +60,7 @@ const index = ({ navigation }) => {
     const getPermissions = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
-        console.log("Please grant location permissions");
+   
         return;
       }
 
@@ -80,7 +78,7 @@ const index = ({ navigation }) => {
     getPermissions();
   }, []);
   useEffect(() => {
-    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
+    const unsubscribe = firestore().collection("touristSpots").onSnapshot((snapshot) =>
     setData(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -92,28 +90,11 @@ const index = ({ navigation }) => {
     return unsubscribe;
   }, []);
 
-  const labasDirection =()=> {
 
-        if (selectedTouristSpot === null || undefined) {
-          return (
-            <MapViewDirections
-            origin={driverLocation}
-            destination={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498,
-            }}
-            strokeWidth={10}
-            strokeColor="#3FC060"
-            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
-          />
-          )
-        }
-  }
-  console.log("firebase", selectedTouristSpot)
   return (
     <SafeAreaView>
       <Image
-        source={require("../../../assets/Background/treeBackGround.png")}
+        source={require("../../../assets/Background/PopoyBG.png")}
         style={styles.imageBack}
       />
       <View style={styles.mapContainer}>
@@ -136,10 +117,22 @@ const index = ({ navigation }) => {
             });
           }}
         >
+          {/* <Marker
+            coordinate={{
+              latitude: 14.537187129510134,
+              longitude: 121.36427912861802,
+              latitudeDelta: 0.07,
+              longitudeDelta: 0.07,
+            }}
+            title="marker1"
+            description="description1"
+          />
           <Marker
             coordinate={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498           
+              latitude: 14.541445082627884,
+              longitude: 121.36519107963379,
+              latitudeDelta: 0.07,
+              longitudeDelta: 0.07,
             }}
             title="Destination"
             description="description2"
@@ -152,21 +145,17 @@ const index = ({ navigation }) => {
             strokeColor={Colors.blackT}
             strokeWidth={5}
           /> */}
-       
           {/* <MapViewDirections
             origin={driverLocation}
             destination={{
               latitude: 14.535826644291753,
               longitude: 121.36468682438498,
             }}
-            strokeWidth={10}
+            strokeWidth={3}
             strokeColor="#3FC060"
-            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
+            apikey={"AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8"}
           /> */}
-          {labasDirection()}
-          
         </MapView>
-        
         <View
           style={{
             position: "absolute",
@@ -175,7 +164,7 @@ const index = ({ navigation }) => {
             alignSelf: "center",
           }}
         >
-          <Button
+          {/* <Button
             title={isActive ? "STOP" : "START/ RUN"}
             onPress={() => navigation.navigate("HomeTab")}
             buttonStyle={{
@@ -191,8 +180,8 @@ const index = ({ navigation }) => {
               padding: 10,
             }}
             titleStyle={{ fontWeight: "bold" }}
-          />
-        </View>
+          /> */}
+        </View> 
         <View
           style={{
             position: "absolute",
@@ -231,7 +220,7 @@ const index = ({ navigation }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <Text style={{ fontSize: 15 }}>Speed: 100 km/hr</Text>
+            <Text style={{ fontSize: 15 }}>Speed: {time}</Text>
             <Text style={{ fontSize: 15 }}>Distance: 100 km</Text>
           </View>
         </View>
@@ -260,24 +249,6 @@ const index = ({ navigation }) => {
           </View>
         </BottomSheet>
       </View>
-
-      {/* <ScrollView>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <View style={styles.logoImageContainer}>
-            <Image source={require("../../../assets/junglepopoy.png")} style={styles.logoImage} />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.firstTextContainer}>
-          
-              <Text style={styles.firstText} >
-                Test Tourist
-              </Text>
-        </View>
-
-    <View>
-      <Text style={{color:"white"}}>End</Text>
-    </View>
-        </ScrollView> */}
     </SafeAreaView>
   );
 };

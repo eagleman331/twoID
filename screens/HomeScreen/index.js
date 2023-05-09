@@ -3,6 +3,7 @@ import React, { useLayoutEffect } from 'react';
 import styles from "./styles";
 import { SafeAreaView } from 'react-native';
 import { NarrativeData } from "../../assets/DataSampleWords/NarrativeData";
+import { StyleSheet } from 'react-native';
 
 
 const index = ({navigation}) => {
@@ -15,13 +16,14 @@ const index = ({navigation}) => {
   return (
     <SafeAreaView>
       <Image
-        source={require("../../assets/Background/treeBackGround.png")}
+        source={require("../../assets/Background/militaryBackground.png")}
         style={styles.imageBack}
       />
+      
         <ScrollView>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <View style={styles.logoImageContainer}>
-            <Image source={require("../../assets/junglepopoy.png")} style={styles.logoImage} />
+            <Image source={require("../../assets/2IDSeal.png")} style={styles.logoImage} />
           </View>
         </TouchableOpacity>
         <View style={styles.firstTextContainer}>

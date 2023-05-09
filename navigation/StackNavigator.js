@@ -192,7 +192,7 @@ function IndevelopmentStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="BulletinTab">
+    <Tabs.Navigator initialRouteName="HomeTab">
       <Tabs.Screen
         name="HomeTab"
         options={{

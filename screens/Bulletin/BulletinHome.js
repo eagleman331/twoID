@@ -123,7 +123,7 @@ const BulletinHome = () => {
     useEffect(() => {
       setData([{ id: 'empty-left' }, ...bulletin, { id: 'empty-right' }])
     },[bulletin])
-    console.log("dataFiredata", bulletin)
+
   return (
     <View style={styles.container}>
       <Backdrop data={data} scrollX={scrollX} />

@@ -36,7 +36,7 @@ const index = ({navigation}) => {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
+    const unsubscribe = firestore().collection("junglePhotos").onSnapshot((snapshot) =>
     setData(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -51,10 +51,16 @@ const index = ({navigation}) => {
   return (
     <>
       <StatusBar hidden />
-    <View style={{backgroundColor:Colors.clouds}}>
-
+     
+        <View
+        style={[
+          StyleSheet.absoluteFillObject,
+          { backgroundColor: Colors.clouds, opacity: 0.5,
+          flex:1
+        },
+        ]}
+      />
       <Header />
-    </View>
       <Animated.ScrollView
         scrollEventThrottle={16}
         onScroll={onScroll}

@@ -10,13 +10,11 @@ const OrderListItem = ({ item }) => {
   const { selectedTouristSpot,
     setSelectedTouristSpot} = useContext(TaskContext)
 
-  
-
   return (
     <Pressable
       onPress={() => {
         setSelectedTouristSpot(item)
-        navigation.navigate("TourDirections", item)
+        navigation.navigate("TourDirections", {item})
       }}
       style={{
         flexDirection: "row",
@@ -30,17 +28,16 @@ const OrderListItem = ({ item }) => {
       }}
     >
       <Image
-        source={{uri:item.data.facebookPic}}
+        source={{uri:item.data.image}}
         style={{ width: 75, height: 75, marginRight: 5, borderRadius: 5 }}
       />
 
       <View>
         <Text style={{ fontWeight: "600", fontSize: 16 }}>
-          author: 
           {item.data.author}
         </Text>
         <Text style={{ marginVertical: 5, color: Colors.blackT }}>
-          3 items &#8226; $38.45
+          Location: Camp Capinpin
         </Text>
         <Text style={{ color: Colors.gray }}>
           2 days ago &#8226; 
