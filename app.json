@@ -4,12 +4,12 @@
     "slug": "twoID",
     "version": "1.0.6",
     "orientation": "portrait",
-    "icon": "./assets/junglepopoy.png",
+    "icon": "./assets/2IDLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/junglepopoy.png",
+      "image": "./assets/2IDSeal.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#010604"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -28,8 +28,8 @@
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/junglepopoy.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/2IDLogo.png",
+        "backgroundColor": "#4D7E3E"
       },
       "package": "com.eagleman33.twoID"
     },

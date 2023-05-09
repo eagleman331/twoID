@@ -43,8 +43,7 @@ const index = ({ navigation }) => {
   const [varLoc, setVarLoc] = useState(null);
   const [distance, setDistance] = useState(0);
   const [speed, setSpeed] = useState(null);
-  const GOOGLE_MAPS_APIKEY = "AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8";
-  const GOOGLE_MAPS_APIKEY2 = "AIzaSyCwB1OIlpYvVxqlE1kUGNnV7zfJwdz--5M";
+
 
   Location.setGoogleApiKey(API_GOOGLEMAPSDK);
 
@@ -61,7 +60,7 @@ const index = ({ navigation }) => {
     const getPermissions = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
-        console.log("Please grant location permissions");
+   
         return;
       }
 
@@ -79,7 +78,7 @@ const index = ({ navigation }) => {
     getPermissions();
   }, []);
   useEffect(() => {
-    const unsubscribe = firestore().collection("bulletinHome").onSnapshot((snapshot) =>
+    const unsubscribe = firestore().collection("touristSpots").onSnapshot((snapshot) =>
     setData(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -91,28 +90,11 @@ const index = ({ navigation }) => {
     return unsubscribe;
   }, []);
 
-  const labasDirection =()=> {
 
-        if (selectedTouristSpot === null || undefined) {
-          return (
-            <MapViewDirections
-            origin={driverLocation}
-            destination={{
-              latitude: 14.535826644291753,
-              longitude: 121.36468682438498,
-            }}
-            strokeWidth={10}
-            strokeColor="#3FC060"
-            apikey={"AIzaSyArtqYOlP_0RHAI3e_lugJwKQXy1X9gzuE"}
-          />
-          )
-        }
-  }
-  console.log("firebase", selectedTouristSpot)
   return (
     <SafeAreaView>
       <Image
-        source={require("../../../assets/Background/treeBackGround.png")}
+        source={require("../../../assets/Background/PopoyBG.png")}
         style={styles.imageBack}
       />
       <View style={styles.mapContainer}>
@@ -182,7 +164,7 @@ const index = ({ navigation }) => {
             alignSelf: "center",
           }}
         >
-          <Button
+          {/* <Button
             title={isActive ? "STOP" : "START/ RUN"}
             onPress={() => navigation.navigate("HomeTab")}
             buttonStyle={{
@@ -198,8 +180,8 @@ const index = ({ navigation }) => {
               padding: 10,
             }}
             titleStyle={{ fontWeight: "bold" }}
-          />
-        </View> */}
+          /> */}
+        </View> 
         <View
           style={{
             position: "absolute",
@@ -267,24 +249,6 @@ const index = ({ navigation }) => {
           </View>
         </BottomSheet>
       </View>
-
-      {/* <ScrollView>
-        <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <View style={styles.logoImageContainer}>
-            <Image source={require("../../../assets/junglepopoy.png")} style={styles.logoImage} />
-          </View>
-        </TouchableOpacity>
-        <View style={styles.firstTextContainer}>
-          
-              <Text style={styles.firstText} >
-                Test Tourist
-              </Text>
-        </View>
-
-    <View>
-      <Text style={{color:"white"}}>End</Text>
-    </View>
-        </ScrollView> */}
     </SafeAreaView>
   );
 };

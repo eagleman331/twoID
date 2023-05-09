@@ -20,6 +20,7 @@ import {SitUpData} from "../../../assets/DataSlides/PftSlidesFAQs/SitUpFAQs";
 import Colors from "../../../constant/Colors";
 import { Divider } from "@rneui/themed";
 import { FlatList } from "react-native";
+import { StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window");
 
 const index = ({ navigation }) => {
@@ -44,8 +45,9 @@ const index = ({ navigation }) => {
   };
   return (
     <SafeAreaView>
+      
       <Image
-        source={require("../../../assets/Background/treeBackGround.png")}
+        source={require("../../../assets/Background/militaryBackground.png")}
         style={styles.imageBack}
       />
       <ScrollView>
@@ -182,6 +184,7 @@ const index = ({ navigation }) => {
           </View>
         </View>
       </ScrollView>
+      
     </SafeAreaView>
   );
 };

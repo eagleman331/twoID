@@ -1,43 +1,18 @@
 export const NarrativeData = [
     {
         id:"1",
-        core: "Living in the wilderness as a security or protector can be a thrilling and adventurous experience. Imagine waking up every day surrounded by nature, with the only sounds being the rustling of leaves and the chirping of birds. You'll get to live in a peaceful environment, free from the hustle and bustle of city life."  
+        core: "On 19 March 1976, the 2nd Infantry Brigade was upgraded and reorganized as the 2nd Infantry Division, Philippine Army, at Camp Mateo Capinpin. Since the reorganization, twenty-five successive Commanders have already led the 2nd Infantry Division."  
     },
     {
         id:"2",
-        core: "But living in the wilderness is not just about enjoying nature. It also involves being responsible for your own safety and security. You'll need to be well-equipped with survival skills, like knowing how to build a shelter, start a fire, and find food and water. You'll also need to be aware of potential dangers, like wild animals or natural disasters, and have a plan in case of emergencies."
+        core: "This expansion from a brigade to a full division became necessary as brigade troops were assigned to combat the Communist rebels and local criminal element operations in Southern Luzon and beyond. These combat engagements were carried out over multiple regions and provinces, including the two regions of Calabarzon and Mimaropa, and the nine major provinces of Rizal, Cavite, Laguna, Batangas, Quezon, Occidental Mindoro, Oriental Mindoro, Marinduque and Palawan."
     },
     {
         id:"3",
-        core: "Being a protector in the wilderness can also mean defending the land and its inhabitants from harm. You could work as a park ranger, protecting wildlife and preserving the environment for future generations. Or, you could be a part of a conservation organization, fighting against illegal logging and poaching."
+        core: "The ongoing Communist insurgencies in the Philippines began in 1969 with the Communist rebel fighters of the New People's Army (NPA), and worsened to include the Communist Party of the Philippines (CPP), the National Democratic Front of the Philippines (NDF-P), and other local criminal elements. Battling these destructive elements, with both military and criminal aspects, hearkens back to the Constabulary roots of the 2nd Division."
     },
     {
         id:"4",
-        core: "Overall, living in the wilderness as a security or protector can be a challenging and rewarding experience. It requires strength, resilience, and a deep love for nature. But for those who are up for the challenge, it can be a truly fulfilling way of life."
-    },
-    {
-        id:"5",
-        core: "Living in the wilderness can be a great way to protect yourself and your loved ones from outside threats. You can set up your camp in a remote location where you won't be disturbed by unwanted visitors. You can also use your knowledge of the land to stay hidden and avoid detection."
-    },
-    {
-        id:"6",
-        core: "But living in the wilderness isn't just about security and protection. It's also an opportunity to reconnect with nature and live a simpler, more sustainable lifestyle. You can learn to appreciate the natural world and develop a deeper understanding of the environment."
-    },
-    {
-        id:"7",
-        core: "Being a protector in the wilderness can also mean defending the land and its inhabitants from harm. You could work as a park ranger, protecting wildlife and preserving the environment for future generations. Or, you could be a part of a conservation organization, fighting against illegal logging and poaching."
-    },
-    {
-        id:"8",
-        core: "Overall, living in the wilderness as a security or protector can be a challenging and rewarding experience. It requires strength, resilience, and a deep love for nature. But for those who are up for the challenge, it can be a truly fulfilling way of life."
-    },
-    {
-        id:"9",
-        core: "Living in the wilderness can be a great way to protect yourself and your loved ones from outside threats. You can set up your camp in a remote location where you won't be disturbed by unwanted visitors. You can also use your knowledge of the land to stay hidden and avoid detection."
-    },
-    {
-        id:"10",
-        core: "But living in the wilderness isn't just about security and protection. It's also an opportunity to reconnect with nature and live a simpler, more sustainable lifestyle. You can learn to appreciate the natural world and develop a deeper understanding of the environment."
+        core: "In August 2016, President Rodrigo Duterte pulled out the 68th and 74th Infantry Battalion from Southern Luzon and reassigned them to Basilan in order to aid against the Abu Sayyaf Group. The pullout of the 74th Infantry Battalion left the province of Marinduque without a regular military contingent, leaving only the Citizen Armed Force Geographical Unit of the 59th Infantry Battalion to secure the province."
     }
-
 ]

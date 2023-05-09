@@ -34,7 +34,7 @@ const DATA = [
     location: "Mumbai, India",
     date: "Nov 17th, 2020",
     poster:
-      "https://www.creative-flyers.com/wp-content/uploads/2020/07/Afro-vibes-flyer-template.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/junglepopoy-8512b.appspot.com/o/8a79d999-bf0f-41a2-a631-1037b50dd1b6?alt=media&token=dcc69be2-a087-45fc-a02f-18cd876dc84c",
   },
   {
     key:"2",
@@ -42,7 +42,7 @@ const DATA = [
     location: "Unknown",
     date: "Sept 3rd, 2020",
     poster:
-      "https://www.creative-flyers.com/wp-content/uploads/2019/11/Jungle-Party-Flyer-Template-1.jpg",
+    "https://firebasestorage.googleapis.com/v0/b/junglepopoy-8512b.appspot.com/o/33a71ed8-cd66-4764-842e-7d237a6b57ee?alt=media&token=67f99400-a002-432f-bf71-03ccbfc81e31",
   },
   {
     key:"3",
@@ -50,7 +50,7 @@ const DATA = [
     location: "New York, USA",
     date: "Oct 11th, 2020",
     poster:
-      "https://www.creative-flyers.com/wp-content/uploads/2020/06/4th-Of-July-Invitation.jpg",
+    "https://firebasestorage.googleapis.com/v0/b/junglepopoy-8512b.appspot.com/o/1e4f7cc7-b655-4e7d-b81c-86280432b8dc?alt=media&token=7020661f-b133-42f6-86cc-5cf565c285ad",
   },
   {
     key:"4",
@@ -189,6 +189,7 @@ export default function index({ navigation }) {
         <SafeAreaView style={styles.container}>
           <StatusBar hidden />
           <OverflowItems data={data} scrollXAnimated={scrollXAnimated} />
+          
           <FlatList
             data={data}
             // keyExtractor={(_, index) => String(index)}
@@ -286,7 +287,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#4D473D",
   },
   title: {
     fontSize: 24,
@@ -303,11 +304,13 @@ const styles = StyleSheet.create({
   itemContainer: {
     height: OVERFLOW_HEIGHT,
     padding: SPACING * 2,
+    backgroundColor:"#9D8F78"
   },
   itemContainerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+
   },
   overflowContainer: {
     height: OVERFLOW_HEIGHT,

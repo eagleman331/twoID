@@ -40,7 +40,6 @@ const AuthContextProvider = (props) => {
 
   useEffect(() => {
     auth().onAuthStateChanged((user) => {
-      console.log("user", user);
       if (user) {
         setEmailUser(user);
 

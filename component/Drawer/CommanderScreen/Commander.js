@@ -21,7 +21,7 @@ const Commander = ({navigation}) => {
   return (
     <View style={tw("flex-1")}>
       <ImageBackground resizeMode="stretch" style={tw("flex-1")}
-      source={{uri:"https://upload.wikimedia.org/wikipedia/commons/d/db/Ferdinand_R._Marcos_Jr_%28cropped%29.jpg"}}
+      source={require("../../../assets/com2Photo.jpg")}
      >
         <TouchableOpacity
           style={[
@@ -39,11 +39,11 @@ const Commander = ({navigation}) => {
         >
            <Text style={tw("font-bold text-center")}>
             
-            FERDINAND ROMUALDEZ MARCOS JR.
+            MGEN ROBERTO S CAPULONG
           </Text>
 
            <Text style={tw("font-semibold text-center")}>
-            The President Of The Philippines
+            Commander 2nd Infantry Division, Phil Army
           </Text>
          
         </TouchableOpacity>
