@@ -155,7 +155,7 @@ const LoginScreen = ({navigation}) => {
       />
     </View>
      <Button
-              title="Sign In With Email"
+              title="SignIn Admin with Email"
               onPress={signIn}
               icon={{
                 name: 'mail',
@@ -194,7 +194,7 @@ const LoginScreen = ({navigation}) => {
         }}
       />
     </View>
-          <Button
+          {/* <Button
             title="Sign in with Facebook"
             onPress={onFacebookButtonPress}
             icon={{
@@ -216,7 +216,7 @@ const LoginScreen = ({navigation}) => {
               marginHorizontal: 50,
               marginVertical: 10,
             }}
-          />
+          /> */}
             {/* <Button
             title="Sign in with Google"
             onPress={onGoogleButtonPress}

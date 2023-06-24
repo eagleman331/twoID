@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "twoID",
+    "name": "Jungle Fighter",
     "slug": "twoID",
-    "version": "1.0.6",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./assets/2IDLogo.png",
     "userInterfaceStyle": "light",
@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 6,
+      "versionCode": 9,
       "config": {
         "googleMaps": {
           "apiKey":"AIzaSyCPtufjo-8B6pTpfcgzSApt7tr2oGVJEt8"
@@ -28,8 +28,8 @@
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/2IDLogo.png",
-        "backgroundColor": "#4D7E3E"
+        "foregroundImage": "./assets/2IDCPGalery.png",
+        "backgroundColor": "#010604"
       },
       "package": "com.eagleman33.twoID"
     },

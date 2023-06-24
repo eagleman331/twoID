@@ -57,7 +57,7 @@ const index = ({ navigation }) => {
   }, []);
   const bottomSheetRef = useRef(null);
   const closeApp = () => {
-    navigation.navigate("HomeTab");
+    navigation.navigate("TourMap");
   };
   useEffect(() => {
     const getPermissions = async () => {
@@ -72,8 +72,8 @@ const index = ({ navigation }) => {
       let region = {
         latitude: currentLocation.coords.latitude,
         longitude: currentLocation.coords.longitude,
-        latitudeDelta: 0.0022,
-        longitudeDelta: 0.0021,
+        latitudeDelta: 0.0071,
+        longitudeDelta: 0.0071,
       };
       setLocRegion(region);
       setDriverLocation(region);
@@ -108,6 +108,14 @@ const index = ({ navigation }) => {
             });
           }}
         >
+           <Marker
+            coordinate={{
+              latitude: 14.536587, 
+              longitude: 121.363927,    
+            }}
+            title="Destination"
+            description="description2"
+          />
           <Marker
             coordinate={{
               latitude: 14.536587, 

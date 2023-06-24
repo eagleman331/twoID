@@ -9,7 +9,7 @@ export const PushUpData = [
         id:"2",
         title: "Repetition",  
         image:"https://cdn-icons-png.flaticon.com/512/1845/1845841.png",
-        content:"70 Repetition"
+        content:"41 Repetition"
     },
     {
         id:"3",

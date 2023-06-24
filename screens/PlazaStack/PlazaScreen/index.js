@@ -172,7 +172,7 @@ const index = ({ navigation }) => {
                         }}
                         style={{ width: width * 0.3, height: width * 0.3 }}
                       />
-                      <Text>Running</Text>
+                      <Text>2DPAO  Videos</Text>
                     </View>
                   </TouchableOpacity>
                 </View>

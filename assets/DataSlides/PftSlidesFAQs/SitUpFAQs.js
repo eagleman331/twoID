@@ -9,7 +9,7 @@ export const SitUpData = [
         id:"2",
         title: "Repetition",  
         image:"https://cdn-icons-png.flaticon.com/512/2734/2734098.png",
-        content:"54 Repetition"
+        content:"45 Repetition"
     },
     {
         id:"3",

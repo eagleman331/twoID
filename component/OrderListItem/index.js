@@ -37,7 +37,7 @@ const OrderListItem = ({ item }) => {
           {item.data.author}
         </Text>
         <Text style={{ marginVertical: 5, color: Colors.blackT }}>
-          Location: Camp Capinpin
+          Location: Ynarez Gym
         </Text>
         <Text style={{ color: Colors.gray }}>
           2 days ago &#8226; 

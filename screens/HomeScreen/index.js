@@ -36,10 +36,6 @@ const index = ({navigation}) => {
             );
           })}
         </View>
-
-    <View>
-      <Text style={{color:"white"}}>End</Text>
-    </View>
         </ScrollView>
 
     </SafeAreaView>

@@ -69,8 +69,8 @@ const index = ({ navigation }) => {
       let region = {
         latitude: currentLocation.coords.latitude,
         longitude: currentLocation.coords.longitude,
-        latitudeDelta: 0.0022,
-        longitudeDelta: 0.0021,
+        latitudeDelta: 0.031,
+        longitudeDelta: 0.031,
       };
       setLocRegion(region);
       setDriverLocation(region);

@@ -9,7 +9,7 @@ export const RunningData = [
         id:"2",
         title: "Passing Time",  
         image:"https://cdn-icons-png.flaticon.com/512/384/384205.png",
-        content:"15 Minutes"
+        content:"19 Minutes"
     },
     {
         id:"3",
