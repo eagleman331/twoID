@@ -27,6 +27,7 @@
       "permissions" : [],
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true,
+      "multiDexEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/2IDCPGalery.png",
         "backgroundColor": "#010604"

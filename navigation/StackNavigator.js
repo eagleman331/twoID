@@ -34,6 +34,7 @@ import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
 import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
 import Board from "../screens/BoardStack/Board";
+import BoardHome from "../screens/BoardStack/BoardHome";
 import PhotoVerticalSlide from "../screens/PhotoStackF/PhotoVerticalSlide"
 import { AuthContext } from "../context/AuthContext";
 import Commander from "../component/Drawer/CommanderScreen/Commander";
@@ -41,6 +42,9 @@ import DeveloperScreen from "../component/Drawer/DeveloperScreen";
 import IndevelopmentScreen from "../component/Drawer/IndevelopmentScreen";
 import BoardDetails from "../screens/BoardStack/BoardDetails";
 import TouristDirectionScreen from "../screens/TouristStack/TouristDirectionScreen";
+import DetailsScreen from "../screens/Training/DetailsScreen";
+import TrainingScreen from "../screens/Training/TrainingScreen";
+import VideoPlayer from "../screens/Training/VideoPlayer";
 
 const LogInStackNav = createSharedElementStackNavigator();
 const BulletinStackNav = createSharedElementStackNavigator();
@@ -49,6 +53,7 @@ const PhotoNav = createSharedElementStackNavigator();
 const PlazaNav = createSharedElementStackNavigator();
 const FinalStackNav = createSharedElementStackNavigator();
 const TouristStackNav = createSharedElementStackNavigator();
+const TrainingStackNav = createSharedElementStackNavigator();
 const IndevelopmentStackNav = createSharedElementStackNavigator();
 
 const Tabs = createBottomTabNavigator();
@@ -115,6 +120,33 @@ function PhotoStack() {
     </PhotoNav.Navigator>
   );
 }
+
+function TrainingStack() {
+  return (
+    <TrainingStackNav.Navigator>
+      <TrainingStackNav.Screen
+        name="Training"
+        options={options}
+        component={TrainingScreen}
+      />
+      <TrainingStackNav.Screen
+        name="Details"
+        sharedElements={(route, otherRoute, showing) => {
+          const { item } = route.params;
+          return [`item.${item.id}.photo`, `item.${item.id}.location`];
+        }}
+        component={DetailsScreen}
+      />
+      <TrainingStackNav.Screen name="TrainingVideo" component={VideoPlayer} />
+    </TrainingStackNav.Navigator>
+  );
+}
+
+
+
+
+
+
 function TouristStack() {
   return (
     <TouristStackNav.Navigator initialRouteName="TourMap">
@@ -163,7 +195,7 @@ function BulletinStack() {
       <BulletinStackNav.Screen
         name="Board"
         options={options}
-        component={Board}
+        component={BoardHome}
       />
          <BulletinStackNav.Screen
         name="BoardDetails"
@@ -203,19 +235,20 @@ function TabNavigator() {
             <FontAwesome name="home" size={30} color="black" />
           ),
         }}
-        component={HomeStack}
-      />
-      <Tabs.Screen
-        name="PhotosTab"
-        options={{
-          headerShown: false,
-          tabBarLabel: "Photos",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="photo" size={24} color="black" />
-          ),
-        }}
         component={PhotoStack}
       />
+    
+           <Tabs.Screen
+        name="References"
+        options={{
+          headerShown: false,
+          tabBarLabel: "References",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="hotel" size={24} color="black" />
+          ),
+        }}
+        component={PlazaStack}
+      /> 
       <Tabs.Screen
         name="GuideTab"
         options={{
@@ -224,29 +257,32 @@ function TabNavigator() {
           tabBarLabel: "Run",
           tabBarButton: (props) => <SpecialButton {...props} />,
         }}
-        component={TouristStack}
+        component={TrainingStack}
       />
+   
+
       <Tabs.Screen
         name="BulletinTab"
         options={{
           headerShown: false,
-          tabBarLabel: "Bulletin",
+          tabBarLabel: "Events",
           tabBarIcon: ({ color }) => (
             <Foundation name="clipboard-pencil" size={30} color="black" />
           ),
         }}
         component={BulletinStack}
       />
+
       <Tabs.Screen
         name="PlazaTab"
         options={{
           headerShown: false,
-          tabBarLabel: "Plaza",
+          tabBarLabel: "Forum",
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name="hotel" size={24} color="black" />
           ),
         }}
-        component={PlazaStack}
+        component={IndevelopmentStack}
       />
 
       {/* <Tabs.Screen
