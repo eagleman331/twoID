@@ -180,8 +180,189 @@ const index = ({ navigation }) => {
               {/* );
                 }}
               /> */}
-            </View>
+            </View>        
           </View>
+          <View>
+          <Text
+              style={{
+                marginLeft: 5,
+                color: Colors.light,
+                fontSize: 15,
+                fontWeight: "bold",
+              }}
+            >
+              Reservist Documentary Reqs:
+            </Text>
+            <Divider inset={true} insetType="right" width={2} />
+            <View style={{ marginBottom: 20 }}>
+            <FlatList
+              data={PlazaHomeData}
+              keyExtractor={(item) => item.id}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              bounces={false}
+              decelerationRate={Platform.OS === "ios" ? 0 : 0.98}
+              renderToHardwareTextureAndroid
+              contentContainerStyle={{ alignItems: "center" }}
+              renderItem={({ item, index }) => {
+                return (
+                  <View
+                    key={index}
+                    style={{
+                      marginTop: 10,
+                      marginRight: 10,
+                    }}
+                  >
+                    <View style={styles.socialMedia}>
+                      <TouchableOpacity
+                      
+                      onPress={() => navigateToPftViewer(item)}
+                      >
+                        <View
+                          style={{
+                            backgroundColor: Colors.light,
+                            width: width * 0.4,
+                            height: width * 0.4,
+                            borderRadius: 9,
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            source={{ uri: item.icon }}
+                            style={{ width: width * 0.3, height: width * 0.3 }}
+                          />
+                          <Text>{item.core}</Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                );
+              }}
+            />
+          </View>
+            </View>
+
+            <View>
+          <Text
+              style={{
+                marginLeft: 5,
+                color: Colors.light,
+                fontSize: 15,
+                fontWeight: "bold",
+              }}
+            >
+              Recruitment Required Docs:
+            </Text>
+            <Divider inset={true} insetType="right" width={2} />
+            <View style={{ marginBottom: 20 }}>
+            <FlatList
+              data={PlazaHomeData}
+              keyExtractor={(item) => item.id}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              bounces={false}
+              decelerationRate={Platform.OS === "ios" ? 0 : 0.98}
+              renderToHardwareTextureAndroid
+              contentContainerStyle={{ alignItems: "center" }}
+              renderItem={({ item, index }) => {
+                return (
+                  <View
+                    key={index}
+                    style={{
+                      marginTop: 10,
+                      marginRight: 10,
+                    }}
+                  >
+                    <View style={styles.socialMedia}>
+                      <TouchableOpacity
+                      
+                      onPress={() => navigateToPftViewer(item)}
+                      >
+                        <View
+                          style={{
+                            backgroundColor: Colors.light,
+                            width: width * 0.4,
+                            height: width * 0.4,
+                            borderRadius: 9,
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            source={{ uri: item.icon }}
+                            style={{ width: width * 0.3, height: width * 0.3 }}
+                          />
+                          <Text>{item.core}</Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                );
+              }}
+            />
+          </View>
+            </View>
+            <View>
+          <Text
+              style={{
+                marginLeft: 5,
+                color: Colors.light,
+                fontSize: 15,
+                fontWeight: "bold",
+              }}
+            >
+              Others:
+            </Text>
+            <Divider inset={true} insetType="right" width={2} />
+            <View style={{ marginBottom: 20 }}>
+            <FlatList
+              data={PlazaHomeData}
+              keyExtractor={(item) => item.id}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              bounces={false}
+              decelerationRate={Platform.OS === "ios" ? 0 : 0.98}
+              renderToHardwareTextureAndroid
+              contentContainerStyle={{ alignItems: "center" }}
+              renderItem={({ item, index }) => {
+                return (
+                  <View
+                    key={index}
+                    style={{
+                      marginTop: 10,
+                      marginRight: 10,
+                    }}
+                  >
+                    <View style={styles.socialMedia}>
+                      <TouchableOpacity
+                      
+                      onPress={() => navigateToPftViewer(item)}
+                      >
+                        <View
+                          style={{
+                            backgroundColor: Colors.light,
+                            width: width * 0.4,
+                            height: width * 0.4,
+                            borderRadius: 9,
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            source={{ uri: item.icon }}
+                            style={{ width: width * 0.3, height: width * 0.3 }}
+                          />
+                          <Text>{item.core}</Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                );
+              }}
+            />
+          </View>
+            </View>
         </View>
       </ScrollView>
       

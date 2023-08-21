@@ -224,7 +224,7 @@ function IndevelopmentStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="HomeTab">
+    <Tabs.Navigator initialRouteName="References">
       <Tabs.Screen
         name="HomeTab"
         options={{
