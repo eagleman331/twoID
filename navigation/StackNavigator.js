@@ -30,6 +30,7 @@ import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import PlazaScreen from "../screens/PlazaStack/PlazaScreen";
 import PftViewer from "../screens/PlazaStack/PftViewer"
+import ReservistRequirementsDocs from "../screens/PlazaStack/ReservistRequirementsDocs"
 import PhotoListScreen from "../screens/PhotoStackF/PhotoListScreen";
 import BulletinHome from "../screens/Bulletin/BulletinHome";
 import TouristMap from "../screens/TouristStack/TouristMap";
@@ -45,6 +46,9 @@ import TouristDirectionScreen from "../screens/TouristStack/TouristDirectionScre
 import DetailsScreen from "../screens/Training/DetailsScreen";
 import TrainingScreen from "../screens/Training/TrainingScreen";
 import VideoPlayer from "../screens/Training/VideoPlayer";
+
+
+import TestFolder from "../screens/TestFolder";
 
 const LogInStackNav = createSharedElementStackNavigator();
 const BulletinStackNav = createSharedElementStackNavigator();
@@ -175,6 +179,13 @@ function PlazaStack() {
         })}
         component={PftViewer}
       />
+        <PlazaNav.Screen
+        name="ReservistReqDocs"
+        options={(navigation) => ({
+          tabBarVisible: false,
+        })}
+        component={ReservistRequirementsDocs}
+      />
     </PlazaNav.Navigator>
   );
 }
@@ -212,11 +223,16 @@ function BulletinStack() {
 };
 function IndevelopmentStack() {
   return (
-    <IndevelopmentStackNav.Navigator>
+    <IndevelopmentStackNav.Navigator initialRouteName="Dev">
       <IndevelopmentStackNav.Screen
         name="Dev"
         //  options={options}
         component={IndevelopmentScreen}
+      />
+      <IndevelopmentStackNav.Screen
+        name="TestScreen"
+        //  options={options}
+        component={TestFolder}
       />
     </IndevelopmentStackNav.Navigator>
   );
@@ -274,7 +290,7 @@ function TabNavigator() {
       />
 
       <Tabs.Screen
-        name="PlazaTab"
+        name="Indevelopment"
         options={{
           headerShown: false,
           tabBarLabel: "Forum",

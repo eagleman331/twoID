@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState,useContext } from "react";
 import { Icon, Divider } from "@rneui/themed";
- import junglepopoy from "../../../assets/2IDSeal.png";
+ import junglepopoy from "../../../assets/SaluteSoldier.png";
 import Colors from "../../../constant/Colors";
 import { useNavigation } from "@react-navigation/native";
 const { width, height } = Dimensions.get("window");

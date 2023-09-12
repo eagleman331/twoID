@@ -36,7 +36,7 @@ const index = ({navigation}) => {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = firestore().collection("junglePhotos").onSnapshot((snapshot) =>
+    const unsubscribe = firestore().collection("newsArray").onSnapshot((snapshot) =>
     setData(
         snapshot.docs.map((doc) => ({
           id: doc.id,

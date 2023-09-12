@@ -21,7 +21,7 @@ const Commander = ({navigation}) => {
   return (
     <View style={tw("flex-1")}>
       <ImageBackground resizeMode="stretch" style={tw("flex-1")}
-      source={require("../../../assets/com2Photo.jpg")}
+      source={require("../../../assets/PresidentMarcos.png")}
      >
         <TouchableOpacity
           style={[
@@ -39,11 +39,11 @@ const Commander = ({navigation}) => {
         >
            <Text style={tw("font-bold text-center")}>
             
-            MGEN ROBERTO S CAPULONG
+           President Bongbong Marcos
           </Text>
 
            <Text style={tw("font-semibold text-center")}>
-            Commander 2nd Infantry Division, Phil Army
+            Commander Armed Forces of the Philippines
           </Text>
          
         </TouchableOpacity>

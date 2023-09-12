@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, View, useWindowDimensions, Animated, Image } from 'react-native'
 import React, { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { TouchableOpacity } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 const DATA = [
   {
     key:"1",
@@ -61,6 +62,7 @@ const DATA = [
 ];
 
 const index = ({navigation}) => {
+  const [data, setData] = useState([])
     const { width, height } = useWindowDimensions();
     const ITEM_SIZE = Platform.OS === "ios" ? width * 0.72 : width;
     const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
@@ -86,6 +88,19 @@ const index = ({navigation}) => {
         return () => scrollX.removeListener();
       }, [])
 
+      useEffect(() => {
+        const unsubscribe = firestore().collection("newsArray").onSnapshot((snapshot) =>
+        setData(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              data: doc.data(),
+            }))
+          )
+        );
+    
+        return unsubscribe;
+      }, []);
+     
   return (
     <View style={{}}>
       <Animated.FlatList 
@@ -108,6 +123,7 @@ const index = ({navigation}) => {
            renderItem={({ item, index }) => {
             if (!item.poster) {
               return <View style={{ width: EMPTY_ITEM_SIZE }} />;
+              
             }
   
             const inputRange = [
@@ -121,7 +137,7 @@ const index = ({navigation}) => {
               outputRange: [0, 50, 0],
         
             });
-
+            console.log("data", item)
             return (
               <View style={{ width: ITEM_SIZE, marginTop:100 }}>
               <Animated.View
@@ -130,7 +146,7 @@ const index = ({navigation}) => {
                  
                   alignItems: 'center',
                   transform: [{ translateY }],
-                  backgroundColor: 'white',
+                  // backgroundColor: 'white',
                   borderRadius: 34,
                 }}
               >
@@ -172,7 +188,7 @@ const styles = StyleSheet.create({
   },
   posterImage: {
     width: '100%',
-    resizeMode: 'contain',
+    // resizeMode: 'contain',
     borderRadius: 24,
     margin: 0,
     marginBottom: 10,
